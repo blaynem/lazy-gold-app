@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        Testin
+        Test
         <button onClick={this.testThis}>Test</button>
       </div>
     );
