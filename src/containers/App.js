@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { testThis } from '../actions'
+import { fetchItemData } from '../actions'
 
 class App extends Component {
-  testThis = () => {
-    this.props.testThis()
-  }
   render() {
+    this.props.fetchItemData()
     return (
       <div>
         Test
-        <button onClick={this.testThis}>Test</button>
       </div>
     );
   }
 }
 
-export default connect(null, { testThis })(App);
+export default connect(null, { fetchItemData })(App);
