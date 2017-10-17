@@ -858,6 +858,28 @@ export const mockData = [
     "Server": "Hyjal"
   },
   {
+    "Id": 128304,
+    "Name": "Yseralline Seed",
+    "Level": 101,
+    "Server": "Hyjal",
+    "Class": "Tradeskill",
+    "SubClass": "Herb",
+    "VendorBuy": 0,
+    "VendorSell": 1750,
+    "MarketValue": 45950,
+    "MinBuyout": 29400,
+    "Quantity": 8229,
+    "NumAuctions": 133,
+    "HistoricalPrice": 51330,
+    "RegionMarketAvg": 66675,
+    "RegionMinBuyoutAvg": 56506,
+    "RegionQuantity": 4450,
+    "RegionHistoricalPrice": 77945,
+    "RegionSaleAvg": 50141,
+    "RegionAvgDailySold": 2898.06,
+    "RegionSaleRate": 0.66
+  },
+  {
     "Id": 133572,
     "Name": "Nightborne Delicacy Platter",
     "Level": 110,
