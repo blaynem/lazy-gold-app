@@ -32,9 +32,6 @@ class AncientHealingPotion extends Component {
     // Ex: Rank 1 only yields us 1, rank 3 yields us roughly 1.5
     return costToCraft / materials.yield
   }
-  calculateObliterumProfit = () => {
-    
-  }
   render() {
     const { ancientHealingPotion, obliterum } = itemNames
     const { rankValue, obliterumYield } = this.state
