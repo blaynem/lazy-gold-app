@@ -3,6 +3,8 @@ import React from 'react';
 import { RankSelector } from '../Widgets/RankSelector';
 import { ObliterumYield } from '../Widgets/ObliterumYield';
 
+// imports the RankSelector and ObliterumYield selector/Fields.
+// Otherwise this is just being used to visualize our table rows
 export const ItemLayout = ({ ahPrice, ahProfit, craftingCost, handleChange, name, obliterumProfit, obliterumYield, rankValue }) => (
   <li>
     <h3>{name}</h3>

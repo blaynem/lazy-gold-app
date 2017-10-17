@@ -6,24 +6,20 @@ import {
 
 import { mockData } from '../mockData';
 
+// used to fetch the item data from our api. but since right now we're just
+// using our local mocdata, it doesn't need to be hooked up
 export function fetchItemData() {
   return(dispatch) => {
     dispatch({ type: FETCH_ITEM_DATA, payload: mockData })
-  }
-}
-
-export function testThis() {
-  return(dispatch) => {
-    axios({
-      method: 'get',
-      url: `${apiConfig.serverGet}?server=hyjal`,
-    })
-    .then( res => {
-      console.log(res)
-    })
-    .catch(err => {
-      console.log(err)
-    })
-    dispatch({ type: "Test", payload: {item: "test1"} })
+    // axios({
+    //   method: 'get',
+    //   url: `${apiConfig.serverGet}?server=hyjal`,
+    // })
+    // .then( res => {
+    //   console.log(res)
+    // })
+    // .catch(err => {
+    //   console.log(err)
+    // })
   }
 }

@@ -23,6 +23,7 @@ const INITIAL_STATE = {
 
 export default function itemsReducer(state = INITIAL_STATE, action){
   switch(action.type){
+    // when we fetch the data, we want to create an object for our state that uses all the items IDs.
     case FETCH_ITEM_DATA:
       const dataObj = action.payload.reduce((acc, curr) => {
         acc[curr.Id] = curr

@@ -1,3 +1,5 @@
+// TODO: this can be replaced with the namesInObj.js
+
 export const itemNames = {
   ancientHealingPotion: 127834,
   yserallineSeed: 128304,

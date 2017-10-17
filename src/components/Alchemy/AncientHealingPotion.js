@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+// NEED TO REPLACE THIS WITH THE NAMESINOBJ FILE
 import { itemNames } from '../../constants/itemNames';
 
 import { ItemLayout } from '../../Widgets/ItemLayout'
@@ -67,6 +68,9 @@ export default AncientHealingPotion
 
 // Yseralline Seed = 128304
 // Crystal Vial = 3371
+// should be able to extract this to allow reuse throughout all crafting items.
+// tricky things might be blood of sargeras and other soul bound items.
+// maybe need to calculate that first and then throw it inside of our reducer based off of data recieved?
 const recipeRank = [
   {
     yield: 1,

@@ -1,3 +1,4 @@
+// can be used to replace the itemNames inside constants
 const names = {
   DeployableBulletDispenser: 132509,
   GunpowderCharge: 132510,
