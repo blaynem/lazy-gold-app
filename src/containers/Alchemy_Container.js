@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
-import { AncientHealingPotion } from '../components/Alchemy/AncientHealingPotion';
+import AncientHealingPotion from '../components/Alchemy/AncientHealingPotion';
 
 class AlchemyContainer extends Component {
   render() {
@@ -9,7 +9,9 @@ class AlchemyContainer extends Component {
     return (
       <div>
         Alchemy page
-        <AncientHealingPotion data={{"127834": data[127834], "128304": data[128304], "3371": data[3371]}}/>
+        <ul>
+          <AncientHealingPotion data={{"127834": data[127834], "128304": data[128304], "3371": data[3371], "124125": data[124125]}}/>
+        </ul>
       </div>
     )
   }
