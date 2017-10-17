@@ -1,83 +1,113 @@
 import React, { Component } from "react";
+
+import { itemNames } from '../../constants/itemNames';
+
 import { ItemLayout } from '../../Widgets/ItemLayout'
-import { RankSelector } from '../../Widgets/RankSelector';
-import { ObliterumYield } from '../../Widgets/ObliterumYield';
 
 class AncientHealingPotion extends Component {
   constructor(props){
     super(props)
 
-    this.state = { selectedRank: 3, obliterumYield: 1.5 }
+    this.state = { rankValue: 0, obliterumYield: 1.5 }
   }
+  // handles the change of the fields via the name and value that
+  // is passed through the event
   handleChange = (e) => {
     const { name, value } = e.target
     this.setState({ [name]: value })
   }
-  renderCraftingCost = () => {
-    return <div>tbd</div>
+  calculateCraftingCost = () => {
+    const { data } = this.props
+    const { rankValue } = this.state
+    // we get the materials from the recipeRank const defined on bottom of page
+    const materials = recipeRank[rankValue]
+    // to calculate, we iterate over the reagants of the materials needed:
+    // mat total price consists of the materials current marketValue and the amount needed to create the item
+    const costToCraft = (materials.reagents).reduce( (acc, matItem) => {
+      const matPrice = data[matItem.id].MarketValue
+      const total = matPrice * matItem.amount
+      return acc + total
+    }, 0)
+    // we divide by the amount that is crafted per rank in order to get the price.
+    // Ex: Rank 1 only yields us 1, rank 3 yields us roughly 1.5
+    return costToCraft / materials.yield
   }
-  renderProfit = () => {
-    return <div>tbd</div>
+  calculateObliterumProfit = () => {
+    
   }
   render() {
-    const ancientHealingPotion = 127834, yseralSeed = 128304, crystalVial = 3371, obliterum = 124125
-    const { selectedRank, obliterumYield } = this.state
+    const { ancientHealingPotion, obliterum } = itemNames
+    const { rankValue, obliterumYield } = this.state
     const { data } = this.props
-    console.log(data)
+    // ahprice recieved from database
+    const ahPrice = data[ancientHealingPotion].MarketValue
+    // calculated crafting cost
+    const craftingCost = this.calculateCraftingCost()
+    // obliterum price on the AH
+    const obliterumAHPrice = data[obliterum].MarketValue
+    // obliterum profit is the price, times the yield for obliterating the item, divided by 100.
+    // we then take out the AH (5%) cut, and subtract the crafting costs
+    const obliterumProfit = (obliterumAHPrice * obliterumYield / 100) * .95 - craftingCost
+    // ahProfit is calculated by the current price in the AH,
+    // minus the AH (5%) cut, and subtract the crafting costs    
+    const ahProfit = ahPrice * .95 - craftingCost
     return (
-      <li>
-        <h3>{data[ancientHealingPotion].Name}</h3>
-        <RankSelector value={selectedRank} handleChange={this.handleChange}/>
-        <h3>AH Price: {data[ancientHealingPotion].MarketValue}</h3>
-        <h3>Crafting Cost: {this.renderCraftingCost()}</h3>
-        <ObliterumYield value={obliterumYield} handleChange={this.handleChange}/>
-        <h3>Obliterum Profit: {data[obliterum].MarketValue}</h3>
-        <h3>AH Profit: {this.renderProfit()}</h3>
-      </li>
+      <ItemLayout
+        name={data[ancientHealingPotion].Name}
+        rankValue={rankValue}
+        handleChange={this.handleChange}
+        ahPrice={ahPrice}
+        obliterumYield={obliterumYield}
+        obliterumProfit={obliterumProfit}
+        craftingCost={craftingCost}
+        ahProfit={ahProfit}
+      />
     )
   }
 }
 
 export default AncientHealingPotion
 
-const RecipeRank = {
-  "1": {
-    Yield: 1,
-    Reagents: [
+// Yseralline Seed = 128304
+// Crystal Vial = 3371
+const recipeRank = [
+  {
+    yield: 1,
+    reagents: [
       {
-        Id: 128304,
-        Amount: 4
+        id: 128304,
+        amount: 4
       },
       {
-        Id: 3371,
-        Amount: 1
+        id: 3371,
+        amount: 1
       }
     ]
   },
-  "2": {
-    Yield: 1,
-    Reagents: [
+  {
+    yield: 1,
+    reagents: [
       {
-        Id: 128304,
-        Amount: 4
+        id: 128304,
+        amount: 4
       },
       {
-        Id: 3371,
-        Amount: 1
+        id: 3371,
+        amount: 1
       }
     ]
   },
-  "3": {
-    Yield: 1.5,
-    Reagents: [
+  {
+    yield: 1.5,
+    reagents: [
       {
-        Id: 128304,
-        Amount: 4
+        id: 128304,
+        amount: 4
       },
       {
-        Id: 3371,
-        Amount: 1
+        id: 3371,
+        amount: 1
       }
     ]
   }
-}
+]
