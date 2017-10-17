@@ -9,7 +9,7 @@ class AlchemyContainer extends Component {
     return (
       <div>
         Alchemy page
-        <AncientHealingPotion />
+        <AncientHealingPotion data={{"127834": data[127834], "128304": data[128304], "3371": data[3371]}}/>
       </div>
     )
   }
