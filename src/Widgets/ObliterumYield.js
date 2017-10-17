@@ -1,6 +1,6 @@
 import React from 'react'
 
+// default name is obliterumYield
 export const ObliterumYield = ({ value, handleChange }) => (
-  console.log(value),
-  <input value={value} onChange={(e) => handleChange(e)}/>
+  <input name="obliterumYield" value={value} onChange={(e) => handleChange(e)}/>
 )
