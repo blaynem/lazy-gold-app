@@ -8,41 +8,41 @@ import ItemWrapper from "../components/ItemWrapper";
 class AlchemyContainer extends Component {
   // goes through the recipe for the intended item. goes through all their ranks and
   // creates a list of the recipes needed to pass down to the component
-  getRecipeItemsList = (recipeItems) => {
-    const { items } = this.props
-    const recipeList = {}
-    recipeItems.RecipeRank.map( (item) => {
-      return item.Reagents.map( reagent => {
-        recipeList[reagent.Id] = items.data[reagent.Id]
-      })
-    })
-    return recipeList
-  }
-  render() {
+  getRecipeItemsList = recipeItems => {
+    const { items } = this.props;
+    const recipeList = {};
+    // grabs the recipe of the specific item inside the recipe file.
+    recipeItems.RecipeRank.forEach(item => {
+      return item.Reagents.forEach(reagent => {
+        // maps over the RecipeRank, grabbing all of the Reagents and placing them
+        // inside the recipeList
+        recipeList[reagent.Id] = items.data[reagent.Id];
+      });
+    });
+    // returns the newly created recipeList object
+    return recipeList;
+  };
+  createMapList = itemsToMap => {
     const { items, obliterum } = this.props;
+    return [...itemsToMap].map(item => {
+      return (
+        <ItemWrapper
+          key={item}
+          craftingInfo={recipes[item]}
+          itemData={items.data[names[item]]}
+          itemName={item}
+          obliterum={obliterum}
+          recipeItemsData={this.getRecipeItemsList(recipes[item])}
+        />
+      );
+    });
+  };
+  render() {
+    const itemsToMapOver = ["AncientHealingPotion", "AncientManaPotion"];
     return (
       <div>
         Alchemy page
-        <ul>
-          {/*Should also be able to reuse this for all of our items.. hopefully I did this right.*/}
-          <ItemWrapper
-            craftingInfo={recipes.AncientHealingPotion}
-            itemData={items.data[names.AncientHealingPotion]}
-            itemName="AncientHealingPotion"
-            obliterum={obliterum}
-            recipeItemsData={this.getRecipeItemsList(recipes.AncientHealingPotion)}
-          />
-          <ItemWrapper
-            craftingInfo={recipes.AncientManaPotion}
-            itemData={items.data[names.AncientManaPotion]}
-            itemName="AncientManaPotion"
-            obliterum={obliterum}
-            recipeItemsData={this.getRecipeItemsList(recipes.AncientManaPotion)}
-          />
-              {/* // AncientHealingPotion: data[names.AncientHealingPotion],
-              // YserallineSeed: data[names.YserallineSeed],
-              // CrystalVial: data[names.CrystalVial], */}
-        </ul>
+        <ul>{this.createMapList(itemsToMapOver)}</ul>
       </div>
     );
   }
