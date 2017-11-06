@@ -1,5 +1,5 @@
 // can be used to replace the itemNames inside constants
-const names = {
+export const names = {
   DeployableBulletDispenser: 132509,
   GunpowderCharge: 132510,
   PumpActionBandageGun: 132511,
@@ -56,13 +56,16 @@ const names = {
   SkystepPotion: 127841,
   UnwrittenLegend: 128979,
   ScrollofForgottenKnowledge: 128980,
-  GemChip: 129099,
+  GemChip: [
+    129099,
+    130200,
+    130201,
+    130202,
+    130203,
+    130204,
+    129100
+  ],
   SteamyRomanceNovelKit: 129211,
-  GemChip: 130200,
-  GemChip: 130201,
-  GemChip: 130202,
-  GemChip: 130203,
-  GemChip: 130204,
   StonehideLeatherBarding: 131746,
   DemonsteelStirrups: 136708,
   ClothesChestDalaranCitizens: 137556,
@@ -187,7 +190,6 @@ const names = {
   RethusIncessantCourage: 146667,
   EmpyrialBreastplate: 151576,
   EmpyrialTitanCrown: 151590,
-  GemChip: 129100,
   Sangrite: 130172,
   DeepAmber: 130173,
   Azsunite: 130174,

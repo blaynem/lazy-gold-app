@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 
 // NEED TO REPLACE THIS WITH THE NAMESINOBJ FILE
-import { itemNames } from '../../constants/itemNames';
+import { names } from '../constants/namesInObj';
 
-import { ItemLayout } from '../../Widgets/ItemLayout'
+import { ItemLayout } from '../Widgets/ItemLayout'
 
-class AncientHealingPotion extends Component {
+class ItemWrapper extends Component {
   constructor(props){
     super(props)
 
@@ -18,31 +18,33 @@ class AncientHealingPotion extends Component {
     this.setState({ [name]: value })
   }
   calculateCraftingCost = () => {
-    const { data } = this.props
+    const { craftingInfo, recipeItemsData, itemData, itemName } = this.props
     const { rankValue } = this.state
     // we get the materials from the recipeRank const defined on bottom of page
-    const materials = recipeRank[rankValue]
+    // const materials = recipeRank[rankValue]
+    const materials = craftingInfo.RecipeRank[rankValue]
     // to calculate, we iterate over the reagants of the materials needed:
     // mat total price consists of the materials current marketValue and the amount needed to create the item
-    const costToCraft = (materials.reagents).reduce( (acc, matItem) => {
-      const matPrice = data[matItem.id].MarketValue
-      const total = matPrice * matItem.amount
+    const costToCraft = (materials.Reagents).reduce( (acc, matItem) => {
+      console.log(matItem)
+      const matPrice = recipeItemsData[matItem.Id].MarketValue
+      const total = matPrice * matItem.Amount
       return acc + total
     }, 0)
     // we divide by the amount that is crafted per rank in order to get the price.
     // Ex: Rank 1 only yields us 1, rank 3 yields us roughly 1.5
-    return costToCraft / materials.yield
+    return costToCraft / materials.Yield
   }
   render() {
-    const { ancientHealingPotion, obliterum } = itemNames
+    console.log("crafting info", this.props)
     const { rankValue, obliterumYield } = this.state
-    const { data } = this.props
+    const { itemData, itemName, obliterum } = this.props
     // ahprice recieved from database
-    const ahPrice = data[ancientHealingPotion].MarketValue
+    const ahPrice = itemData.MarketValue
     // calculated crafting cost
     const craftingCost = this.calculateCraftingCost()
     // obliterum price on the AH
-    const obliterumAHPrice = data[obliterum].MarketValue
+    const obliterumAHPrice = obliterum.MarketValue
     // obliterum profit is the price, times the yield for obliterating the item, divided by 100.
     // we then take out the AH (5%) cut, and subtract the crafting costs
     const obliterumProfit = (obliterumAHPrice * obliterumYield / 100) * .95 - craftingCost
@@ -51,7 +53,7 @@ class AncientHealingPotion extends Component {
     const ahProfit = ahPrice * .95 - craftingCost
     return (
       <ItemLayout
-        name={data[ancientHealingPotion].Name}
+        name={itemName}
         rankValue={rankValue}
         handleChange={this.handleChange}
         ahPrice={ahPrice}
@@ -64,51 +66,4 @@ class AncientHealingPotion extends Component {
   }
 }
 
-export default AncientHealingPotion
-
-// Yseralline Seed = 128304
-// Crystal Vial = 3371
-// should be able to extract this to allow reuse throughout all crafting items.
-// tricky things might be blood of sargeras and other soul bound items.
-// maybe need to calculate that first and then throw it inside of our reducer based off of data recieved?
-const recipeRank = [
-  {
-    yield: 1,
-    reagents: [
-      {
-        id: 128304,
-        amount: 4
-      },
-      {
-        id: 3371,
-        amount: 1
-      }
-    ]
-  },
-  {
-    yield: 1,
-    reagents: [
-      {
-        id: 128304,
-        amount: 4
-      },
-      {
-        id: 3371,
-        amount: 1
-      }
-    ]
-  },
-  {
-    yield: 1.5,
-    reagents: [
-      {
-        id: 128304,
-        amount: 4
-      },
-      {
-        id: 3371,
-        amount: 1
-      }
-    ]
-  }
-]
+export default ItemWrapper
