@@ -35,7 +35,6 @@ class ItemWrapper extends Component {
     const { rankValue } = this.state
     const { itemData, itemName, obliterumData } = this.props
     const { ObliterumYield } = this.props.craftingInfo
-    console.log("props", this.props)
     // ahprice recieved from database
     const ahPrice = itemData.MarketValue
     // calculated crafting cost

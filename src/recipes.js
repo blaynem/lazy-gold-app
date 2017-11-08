@@ -1,7 +1,7 @@
 export const recipes = {
   "AncientHealingPotion": {
     "ItemId": 127834,
-    "ObliterumYield": 1,
+    "ObliterumYield": 1.5,
     "Name": "Ancient Healing Potion",
     "RecipeRank": [
       {
@@ -56,7 +56,7 @@ export const recipes = {
   },
   "AncientManaPotion": {
     "ItemId": 127835,
-    "ObliterumYield": 1,
+    "ObliterumYield": 1.5,
     "Name": "Ancient Mana Potion",
     "RecipeRank": [
       {
@@ -111,7 +111,7 @@ export const recipes = {
   },
   "AncientRejuvenationPotion": {
     "ItemId": 127836,
-    "ObliterumYield": 1,
+    "ObliterumYield": 1.5,
     "Name": "Ancient Rejuvenation Potion",
     "RecipeRank": [
       {
@@ -166,7 +166,7 @@ export const recipes = {
   },
   "DraughtofRawMagic": {
     "ItemId": 127836,
-    "ObliterumYield": 1,
+    "ObliterumYield": 1.5,
     "Name": "Ancient Rejuvenation Potion",
     "RecipeRank": [
       {
@@ -209,6 +209,61 @@ export const recipes = {
             "Id": 124101,
             "Name": "Aethril",
             "Amount": 20
+          },
+          {
+            "Id": 127834,
+            "Name": "Ancient Healing Potion",
+            "Amount": 1
+          }
+        ]
+      }
+    ]
+  },
+  "SylvanElixir": {
+    "ItemId": 127838,
+    "ObliterumYield": 1.5,
+    "Name": "Sylvan Elixir",
+    "RecipeRank": [
+      {
+        "Rank": 1,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124102,
+            "Name": "Dreamleaf",
+            "Amount": 5
+          },
+          {
+            "Id": 127834,
+            "Name": "Ancient Healing Potion",
+            "Amount": 1
+          }
+        ]
+      },
+      {
+        "Rank": 2,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124102,
+            "Name": "Dreamleaf",
+            "Amount": 5
+          },
+          {
+            "Id": 127834,
+            "Name": "Ancient Healing Potion",
+            "Amount": 1
+          }
+        ]
+      },
+      {
+        "Rank": 3,
+        "Yield": 1.5,
+        "Reagents": [
+          {
+            "Id": 124102,
+            "Name": "Dreamleaf",
+            "Amount": 5
           },
           {
             "Id": 127834,
