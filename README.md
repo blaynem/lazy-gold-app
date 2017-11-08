@@ -26,3 +26,19 @@ Shoot me an email at blayne.marjama@gmail.com. Give me a brief overview of who y
 - Testing to make sure all of the calculations are correct.
 - Cutting edge design and feel for the application.
 - Database help.
+
+#### Recipes help.
+If you'd like to help out in settings up the recipes correctly, please read below.
+*Please please please, pay attention to the casing.*
+1. View the [Recipe Format JSON](src/recipeFormat.json) file in order to better understand the format. (If you have suggestions on improving the formatting, feel free to shoot me a message.)
+2. The `Key Name`, a `string` of the object can be found in the namesInObj.js file located [here](src/constants/namesInObj.js), along with the ItemId as it's pair.
+3. `ItemId` a `num` found in the same file as objects `Key Name`, will be it's pair. Or can be googled.
+4. `ObliterumYield` is a `num`, equal to the amount of obliterum that will be received from obliterating a single item.
+5. `Name` a `string`, can take the Objects `Key Name` and simply add spaces where they should be.
+6. `RecipeRank` an `array` of `objects` ranks in order. (rank 1 first, rank 2 second, etc). If the Object only has one Recipe rank, please keep it the same way.
+  1. `Rank` a `num`, number of rank.
+  2. `Yield` a `num`, number of items that will be created when crafting with this `Rank`.
+  3. `Reagents` an `array` of item `objects`. Try to keep the order similar to other recipes, but nothing too strict.
+    1. `Id` a `num` the Id of the reagent needed for the specific rank. Can be found in the namesInObj file, or through google.
+    2. `Name` a `string` the name of reagent needed for the specific rank.
+    3. `Amount` a `num` the amount of the reagent needed for the specific rank.
