@@ -273,5 +273,60 @@ export const recipes = {
         ]
       }
     ]
+  },
+  "AvalancheElixir": {
+    "ItemId": 127839,
+    "ObliterumYield": 1.5,
+    "Name": "Avalanche Elixir",
+    "RecipeRank": [
+      {
+        "Rank": 1,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124103,
+            "Name": "Foxflower",
+            "Amount": 5
+          },
+          {
+            "Id": 127835,
+            "Name": "Ancient Mana Potion",
+            "Amount": 1
+          }
+        ]
+      },
+      {
+        "Rank": 2,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124103,
+            "Name": "Foxflower",
+            "Amount": 5
+          },
+          {
+            "Id": 127835,
+            "Name": "Ancient Mana Potion",
+            "Amount": 1
+          }
+        ]
+      },
+      {
+        "Rank": 3,
+        "Yield": 1.5,
+        "Reagents": [
+          {
+            "Id": 124103,
+            "Name": "Foxflower",
+            "Amount": 5
+          },
+          {
+            "Id": 127835,
+            "Name": "Ancient Mana Potion",
+            "Amount": 1
+          }
+        ]
+      }
+    ]
   }
 }

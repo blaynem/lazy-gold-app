@@ -30,7 +30,6 @@ class AlchemyContainer extends Component {
           key={item}
           craftingInfo={recipes[item]}
           itemData={items.data[names[item]]}
-          itemName={item}
           obliterumData={obliterumData}
           recipeItemsData={this.getRecipeItemsList(recipes[item])}
         />
@@ -40,7 +39,7 @@ class AlchemyContainer extends Component {
   render() {
     // in order to add another, you'll need to make sure the recipe is inside of recipes.js file.
     const firstRow = ["AncientHealingPotion", "AncientManaPotion", "AncientRejuvenationPotion"];
-    const secondRow = ["DraughtofRawMagic", "SylvanElixir"]
+    const secondRow = ["DraughtofRawMagic", "SylvanElixir", "AvalancheElixir"]
     return (
       <div>
         Alchemy page

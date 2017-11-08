@@ -33,7 +33,7 @@ class ItemWrapper extends Component {
   }
   render() {
     const { rankValue } = this.state
-    const { itemData, itemName, obliterumData } = this.props
+    const { itemData, obliterumData } = this.props
     const { ObliterumYield } = this.props.craftingInfo
     // ahprice recieved from database
     const ahPrice = itemData.MarketValue
@@ -49,7 +49,7 @@ class ItemWrapper extends Component {
     const ahProfit = ahPrice * .95 - craftingCost
     return (
       <ItemLayout
-        name={itemName}
+        name={itemData.Name}
         rankValue={rankValue}
         handleChange={this.handleChange}
         ahPrice={ahPrice}
