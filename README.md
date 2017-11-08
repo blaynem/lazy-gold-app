@@ -36,9 +36,9 @@ If you'd like to help out in settings up the recipes correctly, please read belo
 4. `ObliterumYield` is a `num`, equal to the amount of obliterum that will be received from obliterating a single item.
 5. `Name` a `string`, can take the Objects `Key Name` and simply add spaces where they should be.
 6. `RecipeRank` an `array` of `objects` ranks in order. (rank 1 first, rank 2 second, etc). If the Object only has one Recipe rank, please keep it the same way.
-  1. `Rank` a `num`, number of rank.
-  2. `Yield` a `num`, number of items that will be created when crafting with this `Rank`.
-  3. `Reagents` an `array` of item `objects`. Try to keep the order similar to other recipes, but nothing too strict.
-    1. `Id` a `num` the Id of the reagent needed for the specific rank. Can be found in the namesInObj file, or through google.
-    2. `Name` a `string` the name of reagent needed for the specific rank.
-    3. `Amount` a `num` the amount of the reagent needed for the specific rank.
+    1. `Rank` a `num`, number of rank.
+    2. `Yield` a `num`, number of items that will be created when crafting with this `Rank`.
+    3. `Reagents` an `array` of item `objects`. Try to keep the order similar to other recipes, but nothing too strict.
+        1. `Id` a `num` the Id of the reagent needed for the specific rank. Can be found in the namesInObj file, or through google.
+        2. `Name` a `string` the name of reagent needed for the specific rank.
+        3. `Amount` a `num` the amount of the reagent needed for the specific rank.
