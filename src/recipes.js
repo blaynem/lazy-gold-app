@@ -438,5 +438,90 @@ export const recipes = {
         ]
       }
     ]
+  },
+  "LeytorrentPotion": {
+    "ItemId": 127846,
+    "ObliterumYield": 1.5,
+    "Name": "Leytorrent Potion",
+    "RecipeRank": [
+      {
+        "Rank": 1,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124105,
+            "Name": "Starlight Rose",
+            "Amount": 1
+          },
+          {
+            "Id": 124101,
+            "Name": "Aethril",
+            "Amount": 2
+          },
+          {
+            "Id": 124102,
+            "Name": "Dreamleaf",
+            "Amount": 2
+          },
+          {
+            "Id": 3371,
+            "Name": "Crystal Vial",
+            "Amount": 1
+          }
+        ]
+      },
+      {
+        "Rank": 2,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124105,
+            "Name": "Starlight Rose",
+            "Amount": 1
+          },
+          {
+            "Id": 124101,
+            "Name": "Aethril",
+            "Amount": 2
+          },
+          {
+            "Id": 124102,
+            "Name": "Dreamleaf",
+            "Amount": 2
+          },
+          {
+            "Id": 3371,
+            "Name": "Crystal Vial",
+            "Amount": 1
+          }
+        ]
+      },
+      {
+        "Rank": 3,
+        "Yield": 1.5,
+        "Reagents": [
+          {
+            "Id": 124105,
+            "Name": "Starlight Rose",
+            "Amount": 1
+          },
+          {
+            "Id": 124101,
+            "Name": "Aethril",
+            "Amount": 2
+          },
+          {
+            "Id": 124102,
+            "Name": "Dreamleaf",
+            "Amount": 2
+          },
+          {
+            "Id": 3371,
+            "Name": "Crystal Vial",
+            "Amount": 1
+          }
+        ]
+      }
+    ]
   }
 }
