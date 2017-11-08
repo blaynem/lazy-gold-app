@@ -39,7 +39,7 @@ class AlchemyContainer extends Component {
   };
   render() {
     // in order to add another, you'll need to make sure the recipe is inside of recipes.js file.
-    const itemsToMapOver = ["AncientHealingPotion", "AncientManaPotion"];
+    const itemsToMapOver = ["AncientHealingPotion", "AncientManaPotion", "AncientRejuvenationPotion"];
     return (
       <div>
         Alchemy page
