@@ -23,7 +23,7 @@ class AlchemyContainer extends Component {
     return recipeList;
   };
   createMapList = itemsToMap => {
-    const { items, obliterum } = this.props;
+    const { items, obliterumData } = this.props;
     return [...itemsToMap].map(item => {
       return (
         <ItemWrapper
@@ -31,7 +31,7 @@ class AlchemyContainer extends Component {
           craftingInfo={recipes[item]}
           itemData={items.data[names[item]]}
           itemName={item}
-          obliterum={obliterum}
+          obliterumData={obliterumData}
           recipeItemsData={this.getRecipeItemsList(recipes[item])}
         />
       );
@@ -39,11 +39,14 @@ class AlchemyContainer extends Component {
   };
   render() {
     // in order to add another, you'll need to make sure the recipe is inside of recipes.js file.
-    const itemsToMapOver = ["AncientHealingPotion", "AncientManaPotion", "AncientRejuvenationPotion"];
+    const firstRow = ["AncientHealingPotion", "AncientManaPotion", "AncientRejuvenationPotion"];
+    // const secondRow = ["DraughtofRawMagic", "SylvanElixir"]
+    const secondRow = ["DraughtofRawMagic"]
     return (
       <div>
         Alchemy page
-        <ul>{this.createMapList(itemsToMapOver)}</ul>
+        <ul>{this.createMapList(firstRow)}</ul>
+        <ul>{this.createMapList(secondRow)}</ul>
       </div>
     );
   }
@@ -52,7 +55,7 @@ class AlchemyContainer extends Component {
 function mapStateToProps(state) {
   return {
     items: state.items,
-    obliterum: state.items.data[124125]
+    obliterumData: state.items.data[124125]
   };
 }
 

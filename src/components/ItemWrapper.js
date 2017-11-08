@@ -6,7 +6,7 @@ class ItemWrapper extends Component {
   constructor(props){
     super(props)
 
-    this.state = { rankValue: 0, obliterumYield: 1.5 }
+    this.state = { rankValue: 0 }
   }
   // handles the change of the fields via the name and value that
   // is passed through the event
@@ -32,17 +32,19 @@ class ItemWrapper extends Component {
     return costToCraft / materials.Yield
   }
   render() {
-    const { rankValue, obliterumYield } = this.state
-    const { itemData, itemName, obliterum } = this.props
+    const { rankValue } = this.state
+    const { itemData, itemName, obliterumData } = this.props
+    const { ObliterumYield } = this.props.craftingInfo
+    console.log("props", this.props)
     // ahprice recieved from database
     const ahPrice = itemData.MarketValue
     // calculated crafting cost
     const craftingCost = this.calculateCraftingCost()
     // obliterum price on the AH
-    const obliterumAHPrice = obliterum.MarketValue
+    const obliterumAHPrice = obliterumData.MarketValue
     // obliterum profit is the price, times the yield for obliterating the item, divided by 100.
     // we then take out the AH (5%) cut, and subtract the crafting costs
-    const obliterumProfit = (obliterumAHPrice * obliterumYield / 100) * .95 - craftingCost
+    const obliterumProfit = (obliterumAHPrice * ObliterumYield / 100) * .95 - craftingCost
     // ahProfit is calculated by the current price in the AH,
     // minus the AH (5%) cut, and subtract the crafting costs    
     const ahProfit = ahPrice * .95 - craftingCost
@@ -52,7 +54,7 @@ class ItemWrapper extends Component {
         rankValue={rankValue}
         handleChange={this.handleChange}
         ahPrice={ahPrice}
-        obliterumYield={obliterumYield}
+        obliterumYield={ObliterumYield}
         obliterumProfit={obliterumProfit}
         craftingCost={craftingCost}
         ahProfit={ahProfit}
