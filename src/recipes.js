@@ -328,5 +328,115 @@ export const recipes = {
         ]
       }
     ]
+  },
+  "Skaggldrynk": {
+    "ItemId": 127840,
+    "ObliterumYield": 1.5,
+    "Name": "Skaggldrynk",
+    "RecipeRank": [
+      {
+        "Rank": 1,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124104,
+            "Name": "Fjarnskaggl",
+            "Amount": 5
+          },
+          {
+            "Id": 127835,
+            "Name": "Ancient Mana Potion",
+            "Amount": 1
+          }
+        ]
+      },
+      {
+        "Rank": 2,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124104,
+            "Name": "Fjarnskaggl",
+            "Amount": 5
+          },
+          {
+            "Id": 127835,
+            "Name": "Ancient Mana Potion",
+            "Amount": 1
+          }
+        ]
+      },
+      {
+        "Rank": 3,
+        "Yield": 1.5,
+        "Reagents": [
+          {
+            "Id": 124104,
+            "Name": "Fjarnskaggl",
+            "Amount": 5
+          },
+          {
+            "Id": 127835,
+            "Name": "Ancient Mana Potion",
+            "Amount": 1
+          }
+        ]
+      }
+    ]
+  },
+  "SkystepPotion": {
+    "ItemId": 127841,
+    "ObliterumYield": 1.5,
+    "Name": "Skystep Potion",
+    "RecipeRank": [
+      {
+        "Rank": 1,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124105,
+            "Name": "Starlight Rose",
+            "Amount": 5
+          },
+          {
+            "Id": 127836,
+            "Name": "Ancient Rejuvenation Potion",
+            "Amount": 1
+          }
+        ]
+      },
+      {
+        "Rank": 2,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124105,
+            "Name": "Starlight Rose",
+            "Amount": 5
+          },
+          {
+            "Id": 127836,
+            "Name": "Ancient Rejuvenation Potion",
+            "Amount": 1
+          }
+        ]
+      },
+      {
+        "Rank": 3,
+        "Yield": 1.5,
+        "Reagents": [
+          {
+            "Id": 124105,
+            "Name": "Starlight Rose",
+            "Amount": 5
+          },
+          {
+            "Id": 127836,
+            "Name": "Ancient Rejuvenation Potion",
+            "Amount": 1
+          }
+        ]
+      }
+    ]
   }
 }
