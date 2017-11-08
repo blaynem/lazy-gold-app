@@ -30,7 +30,7 @@ Shoot me an email at blayne.marjama@gmail.com. Give me a brief overview of who y
 #### Recipes help.
 If you'd like to help out in settings up the recipes correctly, please read below.
 *Please please please, pay attention to the casing.*
-1. View the [Recipe Format JSON](src/recipeFormat.json) file in order to better understand the format. (If you have suggestions on improving the formatting, feel free to shoot me a message.)
+1. View the [Recipe Format JSON](src/recipeFormatExample.json) file in order to better understand the format. (If you have suggestions on improving the formatting, feel free to shoot me a message.)
 2. The `Key Name`, a `string` of the object can be found in the namesInObj.js file located [here](src/constants/namesInObj.js), along with the ItemId as it's pair.
 3. `ItemId` a `num` found in the same file as objects `Key Name`, will be it's pair. Or can be googled.
 4. `ObliterumYield` is a `num`, equal to the amount of obliterum that will be received from obliterating a single item.
