@@ -40,11 +40,13 @@ class AlchemyContainer extends Component {
     // in order to add another, you'll need to make sure the recipe is inside of recipes.js file.
     const firstRow = ["AncientHealingPotion", "AncientManaPotion", "AncientRejuvenationPotion"];
     const secondRow = ["DraughtofRawMagic", "SylvanElixir", "AvalancheElixir", "Skaggldrynk", "SkystepPotion", "LeytorrentPotion"]
+    const thirdRow = ["PotionofDeadlyGrace", "PotionoftheOldWar"]
     return (
       <div>
         Alchemy page
-        <ul>{this.createMapList(firstRow)}</ul>
-        <ul>{this.createMapList(secondRow)}</ul>
+        {/* <ul>{this.createMapList(firstRow)}</ul>
+        <ul>{this.createMapList(secondRow)}</ul> */}
+        <ul>{this.createMapList(thirdRow)}</ul>
       </div>
     );
   }

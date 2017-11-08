@@ -523,5 +523,175 @@ export const recipes = {
         ]
       }
     ]
+  },
+  "PotionofDeadlyGrace": {
+    "ItemId": 127843,
+    "ObliterumYield": 1.5,
+    "Name": "Potion of Deadly Grace",
+    "RecipeRank": [
+      {
+        "Rank": 1,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124105,
+            "Name": "Starlight Rose",
+            "Amount": 1
+          },
+          {
+            "Id": 124104,
+            "Name": "Fjarnskaggl",
+            "Amount": 2
+          },
+          {
+            "Id": 124102,
+            "Name": "Dreamleaf",
+            "Amount": 2
+          },
+          {
+            "Id": 3371,
+            "Name": "Crystal Vial",
+            "Amount": 1
+          }
+        ]
+      },
+      {
+        "Rank": 2,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124105,
+            "Name": "Starlight Rose",
+            "Amount": 1
+          },
+          {
+            "Id": 124104,
+            "Name": "Fjarnskaggl",
+            "Amount": 2
+          },
+          {
+            "Id": 124102,
+            "Name": "Dreamleaf",
+            "Amount": 2
+          },
+          {
+            "Id": 3371,
+            "Name": "Crystal Vial",
+            "Amount": 1
+          }
+        ]
+      },
+      {
+        "Rank": 3,
+        "Yield": 1.5,
+        "Reagents": [
+          {
+            "Id": 124105,
+            "Name": "Starlight Rose",
+            "Amount": 1
+          },
+          {
+            "Id": 124104,
+            "Name": "Fjarnskaggl",
+            "Amount": 2
+          },
+          {
+            "Id": 124102,
+            "Name": "Dreamleaf",
+            "Amount": 2
+          },
+          {
+            "Id": 3371,
+            "Name": "Crystal Vial",
+            "Amount": 1
+          }
+        ]
+      }
+    ]
+  },
+  "PotionoftheOldWar": {
+    "ItemId": 127844,
+    "ObliterumYield": 1.5,
+    "Name": "Potion of the Old War",
+    "RecipeRank": [
+      {
+        "Rank": 1,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124105,
+            "Name": "Starlight Rose",
+            "Amount": 1
+          },
+          {
+            "Id": 124103,
+            "Name": "Foxflower",
+            "Amount": 2
+          },
+          {
+            "Id": 124104,
+            "Name": "Fjarnskaggl",
+            "Amount": 2
+          },
+          {
+            "Id": 3371,
+            "Name": "Crystal Vial",
+            "Amount": 1
+          }
+        ]
+      },
+      {
+        "Rank": 2,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124105,
+            "Name": "Starlight Rose",
+            "Amount": 1
+          },
+          {
+            "Id": 124103,
+            "Name": "Foxflower",
+            "Amount": 2
+          },
+          {
+            "Id": 124104,
+            "Name": "Fjarnskaggl",
+            "Amount": 2
+          },
+          {
+            "Id": 3371,
+            "Name": "Crystal Vial",
+            "Amount": 1
+          }
+        ]
+      },
+      {
+        "Rank": 3,
+        "Yield": 1.5,
+        "Reagents": [
+          {
+            "Id": 124105,
+            "Name": "Starlight Rose",
+            "Amount": 1
+          },
+          {
+            "Id": 124103,
+            "Name": "Foxflower",
+            "Amount": 2
+          },
+          {
+            "Id": 124104,
+            "Name": "Fjarnskaggl",
+            "Amount": 2
+          },
+          {
+            "Id": 3371,
+            "Name": "Crystal Vial",
+            "Amount": 1
+          }
+        ]
+      }
+    ]
   }
 }
