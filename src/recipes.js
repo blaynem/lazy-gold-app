@@ -693,5 +693,146 @@ export const recipes = {
         ]
       }
     ]
+  },
+  "UnbendingPotion": {
+    "ItemId": 127845,
+    "ObliterumYield": 1.5,
+    "Name": "Unbending Potion",
+    "RecipeRank": [
+      {
+        "Rank": 1,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124105,
+            "Name": "Starlight Rose",
+            "Amount": 1
+          },
+          {
+            "Id": 124103,
+            "Name": "Foxflower",
+            "Amount": 2
+          },
+          {
+            "Id": 124101,
+            "Name": "Aethril",
+            "Amount": 2
+          },
+          {
+            "Id": 3371,
+            "Name": "Crystal Vial",
+            "Amount": 1
+          }
+        ]
+      },
+      {
+        "Rank": 2,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124105,
+            "Name": "Starlight Rose",
+            "Amount": 1
+          },
+          {
+            "Id": 124103,
+            "Name": "Foxflower",
+            "Amount": 2
+          },
+          {
+            "Id": 124101,
+            "Name": "Aethril",
+            "Amount": 2
+          },
+          {
+            "Id": 3371,
+            "Name": "Crystal Vial",
+            "Amount": 1
+          }
+        ]
+      },
+      {
+        "Rank": 3,
+        "Yield": 1.5,
+        "Reagents": [
+          {
+            "Id": 124105,
+            "Name": "Starlight Rose",
+            "Amount": 1
+          },
+          {
+            "Id": 124103,
+            "Name": "Foxflower",
+            "Amount": 2
+          },
+          {
+            "Id": 124101,
+            "Name": "Aethril",
+            "Amount": 2
+          },
+          {
+            "Id": 3371,
+            "Name": "Crystal Vial",
+            "Amount": 1
+          }
+        ]
+      }
+    ]
+  },
+  "PotionofProlongedPower": {
+    "ItemId": 142117,
+    // creates ~1.5 obliterum per potion, or ~15 per 10.
+    "ObliterumYield": 1.5,
+    "Name": "Potion of Prolonged Power",
+    "RecipeRank": [
+      {
+        "Rank": 1,
+        "Yield": 10,
+        "Reagents": [
+          {
+            "Id": 124124,
+            "Name": "Blood of Sargeras",
+            "Amount": 1
+          },
+          {
+            "Id": 3371,
+            "Name": "Crystal Vial",
+            "Amount": 10
+          }
+        ]
+      },
+      {
+        "Rank": 2,
+        "Yield": 10,
+        "Reagents": [
+          {
+            "Id": 124124,
+            "Name": "Blood of Sargeras",
+            "Amount": 1
+          },
+          {
+            "Id": 3371,
+            "Name": "Crystal Vial",
+            "Amount": 10
+          }
+        ]
+      },
+      {
+        "Rank": 3,
+        "Yield": 10.4,
+        "Reagents": [
+          {
+            "Id": 124124,
+            "Name": "Blood of Sargeras",
+            "Amount": 1
+          },
+          {
+            "Id": 3371,
+            "Name": "Crystal Vial",
+            "Amount": 10
+          }
+        ]
+      }
+    ]
   }
 }

@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { recipes } from "../recipes";
 import { names } from "../constants/namesInObj";
 import ItemWrapper from "../components/ItemWrapper";
+import { mockBloodofSargeras } from '../mockData';
 
 class AlchemyContainer extends Component {
   // goes through the recipe for the intended item. goes through all their ranks and
@@ -12,8 +13,12 @@ class AlchemyContainer extends Component {
     const { items } = this.props;
     const recipeList = {};
     // grabs the recipe of the specific item inside the recipe file.
-    recipeItems.RecipeRank.forEach(item => {
-      return item.Reagents.forEach(reagent => {
+    recipeItems.RecipeRank.forEach(recipeItem => {
+      return recipeItem.Reagents.forEach(reagent => {
+        if ( reagent.Id === 124124){
+          console.log(`Blood of Sargeras being referenced in "${recipeItems.Name}" recipe.`)
+          return recipeList[reagent.Id] = mockBloodofSargeras
+        }
         // maps over the RecipeRank, grabbing all of the Reagents and placing them
         // inside the recipeList
         recipeList[reagent.Id] = items.data[reagent.Id];
@@ -40,7 +45,7 @@ class AlchemyContainer extends Component {
     // in order to add another, you'll need to make sure the recipe is inside of recipes.js file.
     const firstRow = ["AncientHealingPotion", "AncientManaPotion", "AncientRejuvenationPotion"];
     const secondRow = ["DraughtofRawMagic", "SylvanElixir", "AvalancheElixir", "Skaggldrynk", "SkystepPotion", "LeytorrentPotion"]
-    const thirdRow = ["PotionofDeadlyGrace", "PotionoftheOldWar"]
+    const thirdRow = ["PotionofDeadlyGrace", "PotionoftheOldWar", "UnbendingPotion", "PotionofProlongedPower"]
     return (
       <div>
         Alchemy page
