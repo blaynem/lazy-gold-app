@@ -1,12 +1,13 @@
 import React from 'react';
 
 // default name is rankValue
-// this just returns back the rank of 1, 2, or 3 for the user to select from.
-// needs to use the index value for the value prop
-export const RankSelector = ({ handleChange, value }) => (
+// this returns the rank of depending on how many available ranks there are..
+// needs to use the index value for the value prop, otherwise if user presses 2, will use zeroth index,
+// when we really need the 2nd item in array
+export const RankSelector = ({ availableRanks, handleChange, value }) => (
   <select name="rankValue" value={value} onChange={(e) => handleChange(e)}>
-    {[1,2,3].map((num, i) => {
-      return <option key={num} value={i}>{num}</option>
+    {availableRanks.map((item, i) => {
+      return <option key={item.Rank} value={i}>{item.Rank}</option>
     })}
   </select>
 )
