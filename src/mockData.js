@@ -21,6 +21,29 @@ export const mockBloodofSargeras = {
   VendorSell:1,
 }
 
+export const mockPrimalSargerite = {
+  Class:"Tradeskill",
+  HistoricalPrice:565973,
+  Id:151568,
+  Level:101,
+  MarketValue:634195,
+  MinBuyout:736999,
+  Name:"Primal Sargerite",
+  NumAuctions:0,
+  Quantity:4076,
+  RegionAvgDailySold:1,
+  RegionHistoricalPrice:1,
+  RegionMarketAvg:1,
+  RegionMinBuyoutAvg:1,
+  RegionQuantity:1,
+  RegionSaleAvg:1,
+  RegionSaleRate:1,
+  Server:"Hyjal",
+  SubClass:"Herb",
+  VendorBuy:0,
+  VendorSell:1,
+}
+
 export const mockData = [
   {
     "Id": 132509,

@@ -7,7 +7,7 @@ For now, I will adding in the new recipes just about one page a day. It's going 
 
 ## TODO
 - Will need to complete, the recipes list in recipes.js.
-- How to calculate blood of sargeras.
+- How to calculate blood of sargeras (Primal Sargerite as well).
   - Where should it be stored: Inside items reducer? (most likely)
   - Where to calculate at? (inside the reducer itself? eh. Maybe chain it to the FETCH_ITEM_DATA action in promise?)
   - Created Mock data for it for now.
