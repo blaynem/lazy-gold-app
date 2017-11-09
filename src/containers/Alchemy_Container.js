@@ -46,12 +46,14 @@ class AlchemyContainer extends Component {
     const firstRow = ["AncientHealingPotion", "AncientManaPotion", "AncientRejuvenationPotion"];
     const secondRow = ["DraughtofRawMagic", "SylvanElixir", "AvalancheElixir", "Skaggldrynk", "SkystepPotion", "LeytorrentPotion"]
     const thirdRow = ["PotionofDeadlyGrace", "PotionoftheOldWar", "UnbendingPotion", "PotionofProlongedPower"]
+    const fourthRow = ["InfernalAlchemistStone"]
     return (
       <div>
         Alchemy page
         {/* <ul>{this.createMapList(firstRow)}</ul>
         <ul>{this.createMapList(secondRow)}</ul> */}
         <ul>{this.createMapList(thirdRow)}</ul>
+        <ul>{this.createMapList(fourthRow)}</ul>
       </div>
     );
   }

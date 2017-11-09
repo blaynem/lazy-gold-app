@@ -834,5 +834,76 @@ export const recipes = {
         ]
       }
     ]
+  },
+  "InfernalAlchemistStone": {
+    "ItemId": 127842,
+    "ObliterumYield": 130,
+    "Name": "Infernal Alchemist Stone",
+    "RecipeRank": [
+      {
+        "Rank": 1,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124124,
+            "Name": "Blood of Sargeras",
+            "Amount": 3
+          },
+          {
+            "Id": 124106,
+            "Name": "Felwort",
+            "Amount": 3
+          },
+          {
+            "Id": 124444,
+            "Name": "Infernal Brimstone",
+            "Amount": 1
+          }
+        ]
+      },
+      {
+        "Rank": 2,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124124,
+            "Name": "Blood of Sargeras",
+            "Amount": 3
+          },
+          {
+            "Id": 124106,
+            "Name": "Felwort",
+            "Amount": 3
+          },
+          {
+            "Id": 124444,
+            "Name": "Infernal Brimstone",
+            "Amount": 1
+          }
+        ]
+      },
+      {
+        "Rank": 3,
+        // TODO: proc currently bugged, may create 2 stones but uses mats for 2 of them.
+        "Yield": 1.3,
+        "Reagents": [
+          {
+            "Id": 124124,
+            "Name": "Blood of Sargeras",
+            "Amount": 3
+          },
+          {
+            "Id": 124106,
+            "Name": "Felwort",
+            "Amount": 3
+          },
+          {
+            "Id": 124444,
+            "Name": "Infernal Brimstone",
+            "Amount": 1
+          }
+        ]
+      }
+    ]
   }
 }
