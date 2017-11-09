@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { recipes } from "../recipes";
 import { names } from "../constants/namesInObj";
 import ItemWrapper from "../components/ItemWrapper";
-import { mockBloodofSargeras } from '../mockData';
+import { mockBloodofSargeras, mockPrimalSargerite } from '../mockData';
 
 class AlchemyContainer extends Component {
   // goes through the recipe for the intended item. goes through all their ranks and
@@ -17,6 +17,10 @@ class AlchemyContainer extends Component {
       return recipeItem.Reagents.forEach(reagent => {
         if ( reagent.Id === 124124){
           console.log(`Blood of Sargeras being referenced in "${recipeItems.Name}" recipe.`)
+          return recipeList[reagent.Id] = mockBloodofSargeras
+        }
+        if ( reagent.Id === 151568){
+          console.log(`Primal Sargerite being referenced in "${recipeItems.Name}" recipe.`)
           return recipeList[reagent.Id] = mockBloodofSargeras
         }
         // maps over the RecipeRank, grabbing all of the Reagents and placing them
@@ -48,14 +52,16 @@ class AlchemyContainer extends Component {
     const thirdRow = ["PotionofDeadlyGrace", "PotionoftheOldWar", "UnbendingPotion", "PotionofProlongedPower"]
     const fourthRow = ["InfernalAlchemistStone"]
     const fifthRow = ["FlaskofTenThousandScars", "FlaskoftheCountlessArmies", "FlaskoftheWhisperedPact", "FlaskoftheSeventhDemon"]
+    const sixthRow = ["AstralAlchemistStone", "LightbloodElixir", "TearsoftheNaaru", "AstralHealingPotion"]
     return (
       <div>
         Alchemy page
         {/* <ul>{this.createMapList(firstRow)}</ul>
-        <ul>{this.createMapList(secondRow)}</ul> */}
+        <ul>{this.createMapList(secondRow)}</ul>
         <ul>{this.createMapList(thirdRow)}</ul>
         <ul>{this.createMapList(fourthRow)}</ul>
-        <ul>{this.createMapList(fifthRow)}</ul>
+        <ul>{this.createMapList(fifthRow)}</ul> */}
+        <ul>{this.createMapList(sixthRow)}</ul>
       </div>
     );
   }

@@ -1245,5 +1245,250 @@ export const recipes = {
         ]
       }
     ]
+  },
+  "AstralAlchemistStone": {
+    "ItemId": 151607,
+    "ObliterumYield": 350,
+    "Name": "Astral Alchemist Stone",
+    "RecipeRank": [
+      {
+        "Rank": 1,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 151565,
+            "Name": "Astral Glory",
+            "Amount": 75
+          },
+          {
+            "Id": 127842,
+            "Name": "Infernal Alchemist Stone",
+            "Amount": 1
+          },
+          {
+            "Id": 151568,
+            "Name": "Primal Sargerite",
+            "Amount": 5
+          },
+        ]
+      },
+      {
+        "Rank": 2,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 151565,
+            "Name": "Astral Glory",
+            "Amount": 60
+          },
+          {
+            "Id": 127842,
+            "Name": "Infernal Alchemist Stone",
+            "Amount": 1
+          },
+          {
+            "Id": 151568,
+            "Name": "Primal Sargerite",
+            "Amount": 4
+          },
+        ]
+      },
+      {
+        "Rank": 3,
+        "Yield": 1.5,
+        "Reagents": [
+          {
+            "Id": 151565,
+            "Name": "Astral Glory",
+            "Amount": 50
+          },
+          {
+            "Id": 127842,
+            "Name": "Infernal Alchemist Stone",
+            "Amount": 1
+          },
+          {
+            "Id": 151568,
+            "Name": "Primal Sargerite",
+            "Amount": 3
+          },
+        ]
+      }
+    ]
+  },
+  "LightbloodElixir": {
+    "ItemId": 151608,
+    "ObliterumYield": 1.5,
+    "Name": "Lightblood Elixir",
+    "RecipeRank": [
+      {
+        "Rank": 1,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 151565,
+            "Name": "Astral Glory",
+            "Amount": 25
+          },
+          {
+            "Id": 151568,
+            "Name": "Primal Sargerite",
+            "Amount": 1
+          },
+          {
+            "Id": 3371,
+            "Name": "Crystal Vial",
+            "Amount": 1
+          },
+        ]
+      },
+      {
+        "Rank": 2,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 151565,
+            "Name": "Astral Glory",
+            "Amount": 20
+          },
+          {
+            "Id": 3371,
+            "Name": "Crystal Vial",
+            "Amount": 1
+          },
+        ]
+      },
+      {
+        "Rank": 3,
+        "Yield": 1.5,
+        "Reagents": [
+          {
+            "Id": 151565,
+            "Name": "Astral Glory",
+            "Amount": 15
+          },
+          {
+            "Id": 3371,
+            "Name": "Crystal Vial",
+            "Amount": 1
+          },
+        ]
+      }
+    ]
+  },
+  "TearsoftheNaaru": {
+    "ItemId": 151609,
+    "ObliterumYield": 1.5,
+    "Name": "Tears of the Naaru",
+    "RecipeRank": [
+      {
+        "Rank": 1,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 151565,
+            "Name": "Astral Glory",
+            "Amount": 20
+          },
+          {
+            "Id": 151568,
+            "Name": "Primal Sargerite",
+            "Amount": 1
+          },
+          {
+            "Id": 3371,
+            "Name": "Crystal Vial",
+            "Amount": 1
+          },
+        ]
+      },
+      {
+        "Rank": 2,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 151565,
+            "Name": "Astral Glory",
+            "Amount": 15
+          },
+          {
+            "Id": 3371,
+            "Name": "Crystal Vial",
+            "Amount": 1
+          },
+        ]
+      },
+      {
+        "Rank": 3,
+        "Yield": 1.5,
+        "Reagents": [
+          {
+            "Id": 151565,
+            "Name": "Astral Glory",
+            "Amount": 10
+          },
+          {
+            "Id": 3371,
+            "Name": "Crystal Vial",
+            "Amount": 1
+          },
+        ]
+      }
+    ]
+  },
+  "AstralHealingPotion": {
+    "ItemId": 152615,
+    "ObliterumYield": 1.5,
+    "Name": "Astral Healing Potion",
+    "RecipeRank": [
+      {
+        "Rank": 1,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 151565,
+            "Name": "Astral Glory",
+            "Amount": 20
+          },
+          {
+            "Id": 3371,
+            "Name": "Crystal Vial",
+            "Amount": 1
+          },
+        ]
+      },
+      {
+        "Rank": 2,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 151565,
+            "Name": "Astral Glory",
+            "Amount": 15
+          },
+          {
+            "Id": 3371,
+            "Name": "Crystal Vial",
+            "Amount": 1
+          },
+        ]
+      },
+      {
+        "Rank": 3,
+        "Yield": 1.5,
+        "Reagents": [
+          {
+            "Id": 151565,
+            "Name": "Astral Glory",
+            "Amount": 15
+          },
+          {
+            "Id": 3371,
+            "Name": "Crystal Vial",
+            "Amount": 1
+          },
+        ]
+      }
+    ]
   }
 }
