@@ -1,9 +1,19 @@
 import React from 'react';
+import { ListGroupItem } from 'react-bootstrap';
+import { convertToGold } from '../utils';
 
 import { RankSelector } from '../Widgets/RankSelector';
 
-// imports the RankSelector and ObliterumYield selector/Fields.
-// Otherwise this is just being used to visualize our table rows
+const parsePrices = (price) => {
+  const priceObj = convertToGold(price)
+  return (
+    <span className="prices">
+      {priceObj.gold}<span className="prices-gold">g</span>
+      {priceObj.silver}<span className="prices-silver">s</span>
+      {priceObj.copper}<span className="prices-copper">c</span>
+    </span>
+  )
+}
 export const ItemLayout = ({
   ahPrice,
   ahProfit,
@@ -14,16 +24,15 @@ export const ItemLayout = ({
   obliterumProfit,
   obliterumYield,
   rankValue }) => (
-  <li>
-    <p>{name}</p>
+  <ListGroupItem header={name}>
     <RankSelector
       availableRanks={availableRanks}
       value={rankValue}
       handleChange={handleChange}/>
-    <p>AH Price: {ahPrice}</p>
-    <p>Crafting Cost: {craftingCost}</p>
-    <p>Obliterum Yield: {obliterumYield}</p>
-    <p>Obliterum Profit: {obliterumProfit}</p>
-    <p>AH Profit: {ahProfit}</p>
-  </li>
+    <span>AH Price: {parsePrices(ahPrice)}</span>
+    <span>Crafting Cost: {parsePrices(craftingCost)}</span>
+    <span>Obliterum Yield: {obliterumYield}</span>
+    <span>Obliterum Profit: {parsePrices(obliterumProfit)}</span>
+    <span>AH Profit: {parsePrices(ahProfit)}</span>
+  </ListGroupItem>
 )
