@@ -1,7 +1,6 @@
 export const convertToGold = (price) => {
-  const priceFix = Math.round(price).toString()
-  const gold = priceFix.slice(0, -3)
-  const silver = priceFix.slice(-4).slice(0,2)
-  const copper = priceFix.slice(-2)
+  const gold = Math.floor(price / 10000)
+  const silver = Math.floor(( price - gold * 10000 ) / 100)
+  const copper = Math.floor(( (price - gold * 10000) - silver * 100 ))
   return { gold, silver, copper}
 }
