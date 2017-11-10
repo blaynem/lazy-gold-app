@@ -5,9 +5,12 @@ import React from 'react';
 // needs to use the index value for the value prop, otherwise if user presses 2, will use zeroth index,
 // when we really need the 2nd item in array
 export const RankSelector = ({ availableRanks, handleChange, value }) => (
-  <select name="rankValue" value={value} onChange={(e) => handleChange(e)}>
-    {availableRanks.map((item, i) => {
-      return <option key={item.Rank} value={i}>{item.Rank}</option>
-    })}
-  </select>
+  <div>
+    <span>Rank:</span>
+    <select name="rankValue" value={value} onChange={(e) => handleChange(e)}>
+      {availableRanks.map((item, i) => {
+        return <option key={item.Rank} value={i}>{item.Rank}</option>
+      })}
+    </select>
+  </div>
 )

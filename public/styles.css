@@ -1,0 +1,21 @@
+.list-group-item-text {
+  display: flex;
+}
+/* .list-group-item-text select {
+  flex: 0;
+} */
+.list-group-item-text > * {
+  flex: 1;
+}
+
+.prices-gold{
+  color: #CAAA00;
+  margin-right: 3px;
+}
+.prices-silver{
+  color: #777;
+  margin-right: 3px;
+}
+.prices-copper{
+  color: #B87333;
+}
