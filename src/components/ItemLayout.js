@@ -6,6 +6,7 @@ import { RankSelector } from '../Widgets/RankSelector';
 
 const parsePrices = (price) => {
   const priceObj = convertToGold(price)
+  // converts the pricing we recieved into an object so we can use the fancy coloring on leters.
   return (
     <span className="prices">
       {priceObj.gold}<span className="prices-gold">g</span>
@@ -24,7 +25,9 @@ export const ItemLayout = ({
   obliterumProfit,
   obliterumYield,
   rankValue }) => (
-  <ListGroupItem header={name}>
+  <ListGroupItem
+    bsStyle={ahProfit > 1 ? "success" : "danger"}
+    header={name}>
     <RankSelector
       availableRanks={availableRanks}
       value={rankValue}
