@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { ListGroup, PageHeader } from 'react-bootstrap';
+
 
 import { recipes } from "../recipes";
 import { names } from "../constants/namesInObj";
@@ -55,13 +57,15 @@ class AlchemyContainer extends Component {
     const sixthRow = ["AstralAlchemistStone", "LightbloodElixir", "TearsoftheNaaru", "AstralHealingPotion"]
     return (
       <div>
-        Alchemy page
-        {/* <ul>{this.createMapList(firstRow)}</ul>
-        <ul>{this.createMapList(secondRow)}</ul>
-        <ul>{this.createMapList(thirdRow)}</ul>
-        <ul>{this.createMapList(fourthRow)}</ul>
-        <ul>{this.createMapList(fifthRow)}</ul> */}
-        <ul>{this.createMapList(sixthRow)}</ul>
+        <PageHeader>
+          Alchemy page
+        </PageHeader>
+        <ListGroup>{this.createMapList(firstRow)}</ListGroup>
+        <ListGroup>{this.createMapList(secondRow)}</ListGroup>
+        <ListGroup>{this.createMapList(thirdRow)}</ListGroup>
+        <ListGroup>{this.createMapList(fourthRow)}</ListGroup>
+        <ListGroup>{this.createMapList(fifthRow)}</ListGroup>
+        <ListGroup>{this.createMapList(sixthRow)}</ListGroup>
       </div>
     );
   }
