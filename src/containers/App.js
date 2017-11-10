@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Grid, PageHeader } from 'react-bootstrap';
 
 import { fetchItemData } from '../actions'
 import AlchemyContainer from './Alchemy_Container';
@@ -8,10 +9,10 @@ class App extends Component {
   render() {
     this.props.fetchItemData()
     return (
-      <div>
-        <h1>Lazy Gold</h1>
+      <Grid>
+        <PageHeader>Lazy Gold Application <small>Gold made lazy.</small></PageHeader>
         <AlchemyContainer />
-      </div>
+      </Grid>
     );
   }
 }

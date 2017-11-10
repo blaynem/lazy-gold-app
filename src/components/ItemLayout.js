@@ -15,15 +15,15 @@ export const ItemLayout = ({
   obliterumYield,
   rankValue }) => (
   <li>
-    <h3>{name}</h3>
+    <p>{name}</p>
     <RankSelector
       availableRanks={availableRanks}
       value={rankValue}
       handleChange={handleChange}/>
-    <h3>AH Price: {ahPrice}</h3>
-    <h3>Crafting Cost: {craftingCost}</h3>
-    <h3>Obliterum Yield: {obliterumYield}</h3>
-    <h3>Obliterum Profit: {obliterumProfit}</h3>
-    <h3>AH Profit: {ahProfit}</h3>
+    <p>AH Price: {ahPrice}</p>
+    <p>Crafting Cost: {craftingCost}</p>
+    <p>Obliterum Yield: {obliterumYield}</p>
+    <p>Obliterum Profit: {obliterumProfit}</p>
+    <p>AH Profit: {ahProfit}</p>
   </li>
 )
