@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { ItemLayout } from '../Widgets/ItemLayout'
+import { ItemLayout } from './ItemLayout'
 
 class ItemWrapper extends Component {
   constructor(props){
