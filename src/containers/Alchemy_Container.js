@@ -69,13 +69,13 @@ class AlchemyContainer extends Component {
         <PageHeader>
           Alchemy page
         </PageHeader>
-        {/* <ListGroup>{this.createMapList(firstRow)}</ListGroup>
+        <ListGroup>{this.createMapList(firstRow)}</ListGroup>
         <ListGroup>{this.createMapList(secondRow)}</ListGroup>
         <ListGroup>{this.createMapList(thirdRow)}</ListGroup>
         <ListGroup>{this.createMapList(fourthRow)}</ListGroup>
-        <ListGroup>{this.createMapList(fifthRow)}</ListGroup> */}
-        {/* <ListGroup>{this.createMapList(sixthRow)}</ListGroup> */}
-        {this.testNew()}
+        <ListGroup>{this.createMapList(fifthRow)}</ListGroup>
+        <ListGroup>{this.createMapList(sixthRow)}</ListGroup>
+        {/* {this.testNew()} */}
       </div>
     );
   }
