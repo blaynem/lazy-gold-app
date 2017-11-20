@@ -34,7 +34,7 @@ export const ItemLayout = ({
       handleChange={handleChange}/>
     <span>AH Price: {parsePrices(ahPrice)}</span>
     <span>Crafting Cost: {parsePrices(craftingCost)}</span>
-    <span>Obliterum Yield: {obliterumYield}</span>
+    <span>Obliterum Yield: <span>{obliterumYield}</span></span>
     <span>Obliterum Profit: {parsePrices(obliterumProfit)}</span>
     <span>AH Profit: {parsePrices(ahProfit)}</span>
   </ListGroupItem>
