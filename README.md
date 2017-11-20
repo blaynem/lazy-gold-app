@@ -10,7 +10,7 @@ Shoot me an email at blayne.marjama@gmail.com. Give me a brief overview of who y
 
 ## Things that I could use help with
 - Inputting all of these recipes. Please read the [recipes help](#recipes-help) below.
-  - See the [Todo List](#TODO) for which recipes still need completion.
+  - See the [Todo List](#todo) for which recipes still need completion.
 - Double checking the recipes are correct.
 - Testing to make sure all of the calculations are correct.
 - Cutting edge design and feel for the application.
