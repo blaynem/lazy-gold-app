@@ -6,7 +6,8 @@ class ItemWrapper extends Component {
   constructor(props){
     super(props)
 
-    this.state = { rankValue: 0 }
+    const highestRankCraft = ( this.props.craftingInfo.RecipeRank.length - 1)
+    this.state = { rankValue: highestRankCraft }
   }
   // handles the change of the fields via the name and value that
   // is passed through the event
