@@ -3438,5 +3438,23 @@ export const recipes = {
         ]
       }
     ]
+  },
+  "StonehideLeatherBarding": {
+    "ItemId": 131746,
+    "ObliterumYield": 0,
+    "Name": "Stonehide Leather Barding",
+    "RecipeRank": [
+      {
+        "Rank": 1,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124113,
+            "Name": "Stonehide Leather",
+            "Amount": 25
+          }
+        ]
+      }
+    ]
   }
 }
