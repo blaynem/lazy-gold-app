@@ -1490,7 +1490,7 @@ export const recipes = {
         ]
       }
     ]
-  }
+  },
   "DreadleatherBelt": {
     "ItemId": 128890,
     "ObliterumYield": 20,
