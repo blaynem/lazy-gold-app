@@ -14,6 +14,7 @@ class AlchemyContainer extends Component {
   getRecipeItemsList = recipeItems => {
     const { items } = this.props;
     const recipeList = {};
+    // TODO: need to do a check if the item is undefined, then spit out errors.
     // grabs the recipe of the specific item inside the recipe file.
     recipeItems.RecipeRank.forEach(recipeItem => {
       return recipeItem.Reagents.forEach(reagent => {
@@ -24,6 +25,10 @@ class AlchemyContainer extends Component {
         if ( reagent.Id === 151568){
           console.log(`Primal Sargerite being referenced in "${recipeItems.Name}" recipe.`)
           return recipeList[reagent.Id] = mockBloodofSargeras
+        }
+        // if the items ID is undefined, we want to let us know.
+        if (items.data[reagent.Id] === undefined){
+          console.log(`${reagent.Name} seems to be missing. Check Id of ${reagent.Id}`)
         }
         // maps over the RecipeRank, grabbing all of the Reagents and placing them
         // inside the recipeList
@@ -47,6 +52,10 @@ class AlchemyContainer extends Component {
       );
     });
   };
+  // testNew will be used to test all of the recently added recipes.
+  testNew = () => {
+    return this.createMapList(Object.keys(recipes))
+  }
   render() {
     // in order to add another, you'll need to make sure the recipe is inside of recipes.js file.
     const firstRow = ["AncientHealingPotion", "AncientManaPotion", "AncientRejuvenationPotion"];
@@ -66,6 +75,7 @@ class AlchemyContainer extends Component {
         <ListGroup>{this.createMapList(fourthRow)}</ListGroup>
         <ListGroup>{this.createMapList(fifthRow)}</ListGroup>
         <ListGroup>{this.createMapList(sixthRow)}</ListGroup>
+        {/* {this.testNew()} */}
       </div>
     );
   }

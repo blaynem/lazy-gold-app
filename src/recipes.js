@@ -1490,7 +1490,7 @@ export const recipes = {
         ]
       }
     ]
-  }
+  },
   "DreadleatherBelt": {
     "ItemId": 128890,
     "ObliterumYield": 20,
@@ -3434,6 +3434,24 @@ export const recipes = {
             "Id": 151568,
             "Name": "Primal Sargerite",
             "Amount": 5
+          }
+        ]
+      }
+    ]
+  },
+  "StonehideLeatherBarding": {
+    "ItemId": 131746,
+    "ObliterumYield": 0,
+    "Name": "Stonehide Leather Barding",
+    "RecipeRank": [
+      {
+        "Rank": 1,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124113,
+            "Name": "Stonehide Leather",
+            "Amount": 25
           }
         ]
       }

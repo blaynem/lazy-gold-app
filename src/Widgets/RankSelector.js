@@ -6,7 +6,7 @@ import React from 'react';
 // when we really need the 2nd item in array
 export const RankSelector = ({ availableRanks, handleChange, value }) => (
   <span>
-    <span>Rank:</span>
+    Rank:&nbsp;
     <select name="rankValue" value={value} onChange={(e) => handleChange(e)}>
       {availableRanks.map((item, i) => {
         return <option key={item.Rank} value={i}>{item.Rank}</option>

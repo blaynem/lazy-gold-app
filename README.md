@@ -8,30 +8,15 @@ For now, I will adding in the new recipes just about one page a day. It's going 
 ## Interested in helping out?
 Shoot me an email at blayne.marjama@gmail.com. Give me a brief overview of who you are, what you'd like to help with, and why. I'll get back to you asap! Below are a few things I know I could use some help on at the moment.
 
-## TODO
-- Will need to complete, the recipes list in recipes.js.
-- Give each item a page that has a list of the recipes it is included in.
-  - Including data about the item.
-- How to calculate blood of sargeras (Primal Sargerite as well).
-  - Where should it be stored: Inside items reducer? (most likely)
-  - Where to calculate at? (inside the reducer itself? eh. Maybe chain it to the FETCH_ITEM_DATA action in promise?)
-  - Created Mock data for it for now.
-- Check on Potion of Prolonged Power and how it's obliterum is calculated as its "yield" is 10, and obliterumYield may need to take that into consideration.
-  - Does it really only average 10.4...?
-  - May need to do a calculation on crafted `yield` x `obliterumYield`
-- Hook up the API (it's not being used now in order to save bandwith / cost of calls from AWS while in development.)
-- Implement search bar for items.
-- Implement API input.
-- ~Will need to refactor the Rank Selector widget from the static 1-3 rankings and replace them with a dynamic one that will update, well, dynamically, depending on how many ranks there are.. That sounds redundant.~
-
-### Things that I could use help with
+## Things that I could use help with
 - Inputting all of these recipes. Please read the [recipes help](#recipes-help) below.
+  - See the [Todo List](#todo) for which recipes still need completion.
 - Double checking the recipes are correct.
 - Testing to make sure all of the calculations are correct.
 - Cutting edge design and feel for the application.
 - Database help.
 
-#### Recipes help.
+## Recipes help.
 If you'd like to help out in settings up the recipes correctly, please read below.
 *Please please please, pay attention to the casing.*
 View the [Recipe Format JSON](src/recipeFormatExample.json) file in order to better understand the format. (If you have suggestions on improving the formatting, feel free to shoot me a message.)
@@ -46,3 +31,29 @@ View the [Recipe Format JSON](src/recipeFormatExample.json) file in order to bet
         1. `Id` a `num` the Id of the reagent needed for the specific rank. Can be found in the namesInObj file, or through google.
         2. `Name` a `string` the name of reagent needed for the specific rank.
         3. `Amount` a `num` the amount of the reagent needed for the specific rank.
+
+## TODO
+- [ ] Will need to complete, the recipes list in recipes.js.
+  - [x] Alchemy
+  - [ ] Blacksmithing
+  - [ ] Cooking
+  - [ ] Enchanting
+  - [ ] Jewelcrafting
+  - [ ] Inscription
+  - [x] Leatherworking
+  - [ ] Engineering
+  - [ ] Tailoring
+  - [ ] BoS and Primal Sargerite
+- [ ] Give each item a page that has a list of the recipes it is included in.
+  - [ ] Including data about the item.
+- [ ] How to calculate blood of sargeras (Primal Sargerite as well).
+  - [ ] Where should it be stored: Inside items reducer? (most likely)
+  - [ ] Where to calculate at? (inside the reducer itself? eh. Maybe chain it to the FETCH_ITEM_DATA action in promise?)
+  - [ ] Created Mock data for it for now.
+- [ ] Check on Potion of Prolonged Power and how it's obliterum is calculated as its "yield" is 10, and obliterumYield may need to take that into consideration.
+  - [ ] Does it really only average 10.4...?
+  - [ ] May need to do a calculation on crafted `yield` x `obliterumYield`
+- [ ] Hook up the API (it's not being used now in order to save bandwith / cost of calls from AWS while in development.)
+- [ ] Implement search bar for items.
+- [ ] Implement API input.
+- [x] Will need to refactor the Rank Selector widget from the static 1-3 rankings and replace them with a dynamic one that will update, well, dynamically, depending on how many ranks there are.. That sounds redundant.
