@@ -3457,4 +3457,1756 @@ export const recipes = {
       }
     ]
   }
+},
+  //Tailoring
+  "LightweaveBreeches": {
+    "ItemId": 151571,
+    "ObliterumYield": 0,
+       //Find out ObliterumYield if any
+    "Name": "Fiendish Breeches",
+    "RecipeRank": [
+      {
+        "Rank": 1,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 151567,
+            "Name": "Lightweave Cloth",
+            "Amount": 75
+          },
+		  {
+            "Id": 127037,
+            "Name": "Runic Catgut",
+            "Amount": 8
+          },
+		  {
+            "Id": 151568,
+            "Name": "Primal Sargerite",
+            "Amount": 8
+          },
+      {
+                "Id": 127681,
+                "Name": "Sharp Spritethorn",
+                "Amount": 2
+              }
+        ]
+      }
+    ]
+  },
+  "SilkweaveCinch": {
+    "ItemId": 126993,
+    "ObliterumYield": 2.5,
+    "Name": "Silkweave Cinch",
+    "RecipeRank": [
+      {
+        "Rank": 1,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124437,
+            "Name": "Shal'dorei Silk",
+            "Amount": 24
+          }
+        ]
+      },
+      {
+        "Rank": 2,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124437,
+            "Name": "Shal'dorei Silk",
+            "Amount": 18
+          }
+        ]
+      },
+      {
+        "Rank": 3,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124437,
+            "Name": "Shal'dorei Silk",
+            "Amount": 12
+          }
+        ]
+      }
+    ]
+  },
+  "SilkweaveBracers": {
+    "ItemId": 126994,
+    "ObliterumYield": 2,
+    "Name": "Silkweave Bracers",
+    "RecipeRank": [
+      {
+        "Rank": 1,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124437,
+            "Name": "Shal'dorei Silk",
+            "Amount": 18
+          },
+		  {
+            "Id": 127037,
+            "Name": "Runic Catgut",
+            "Amount": 1
+          }
+        ]
+      },
+      {
+        "Rank": 2,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124437,
+            "Name": "Shal'dorei Silk",
+            "Amount": 13
+          },
+		  {
+            "Id": 127037,
+            "Name": "Runic Catgut",
+            "Amount": 1
+          }
+        ]
+      },
+      {
+        "Rank": 3,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124437,
+            "Name": "Shal'dorei Silk",
+            "Amount": 9
+          },
+		  {
+            "Id": 127037,
+            "Name": "Runic Catgut",
+            "Amount": 1
+          }
+        ]
+      }
+    ]
+  },
+  "SilkweaveEpaulets": {
+    "ItemId": 126992,
+    "ObliterumYield": 2.5,
+    "Name": "Silkweave Epaulets",
+    "RecipeRank": [
+      {
+        "Rank": 1,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124437,
+            "Name": "Shal'dorei Silk",
+            "Amount": 24
+          }
+        ]
+      },
+      {
+        "Rank": 2,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124437,
+            "Name": "Shal'dorei Silk",
+            "Amount": 18
+          }
+        ]
+      },
+      {
+        "Rank": 3,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124437,
+            "Name": "Shal'dorei Silk",
+            "Amount": 12
+          }
+        ]
+      }
+    ]
+  },
+  "SilkweaveGloves": {
+    "ItemId": 126989,
+    "ObliterumYield": 2.5,
+    "Name": "Silkweave Gloves",
+    "RecipeRank": [
+      {
+        "Rank": 1,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124437,
+            "Name": "Shal'dorei Silk",
+            "Amount": 24
+          },
+		  {
+            "Id": 127037,
+            "Name": "Runic Catgut",
+            "Amount": 3
+          }
+        ]
+      },
+      {
+        "Rank": 2,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124437,
+            "Name": "Shal'dorei Silk",
+            "Amount": 18
+          },
+		  {
+            "Id": 127037,
+            "Name": "Runic Catgut",
+            "Amount": 3
+          }
+        ]
+      },
+      {
+        "Rank": 3,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124437,
+            "Name": "Shal'dorei Silk",
+            "Amount": 12
+          },
+		  {
+            "Id": 127037,
+            "Name": "Runic Catgut",
+            "Amount": 3
+          }
+        ]
+      }
+    ]
+  },
+  "SilkweaveHood": {
+    "ItemId": 126990,
+    "ObliterumYield": 4,
+    "Name": "Silkweave Hood",
+    "RecipeRank": [
+      {
+        "Rank": 1,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124437,
+            "Name": "Shal'dorei Silk",
+            "Amount": 32
+          },
+		  {
+            "Id": 127037,
+            "Name": "Runic Catgut",
+            "Amount": 1
+          },
+		  {
+            "Id": 127681,
+            "Name": "Sharp Spritethorn",
+            "Amount": 1
+          }
+        ]
+      },
+      {
+        "Rank": 2,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124437,
+            "Name": "Shal'dorei Silk",
+            "Amount": 24
+          },
+		  {
+            "Id": 127037,
+            "Name": "Runic Catgut",
+            "Amount": 1
+          },
+		  {
+            "Id": 127681,
+            "Name": "Sharp Spritethorn",
+            "Amount": 1
+          }
+        ]
+      },
+      {
+        "Rank": 3,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124437,
+            "Name": "Shal'dorei Silk",
+            "Amount": 16
+          },
+		  {
+            "Id": 127037,
+            "Name": "Runic Catgut",
+            "Amount": 1
+          },
+		  {
+            "Id": 127681,
+            "Name": "Sharp Spritethorn",
+            "Amount": 1
+          }
+        ]
+      }
+    ]
+  },
+  "SilkweavePantaloons": {
+    "ItemId": 126991,
+    "ObliterumYield": 4,
+    "Name": "Silkweave Pantaloons",
+    "RecipeRank": [
+      {
+        "Rank": 1,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124437,
+            "Name": "Shal'dorei Silk",
+            "Amount": 32
+          },
+		  {
+            "Id": 127037,
+            "Name": "Runic Catgut",
+            "Amount": 2
+          }
+        ]
+      },
+      {
+        "Rank": 2,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124437,
+            "Name": "Shal'dorei Silk",
+            "Amount": 24
+          },
+		  {
+            "Id": 127037,
+            "Name": "Runic Catgut",
+            "Amount": 2
+          }
+        ]
+      },
+      {
+        "Rank": 3,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124437,
+            "Name": "Shal'dorei Silk",
+            "Amount": 16
+          },
+		  {
+            "Id": 127037,
+            "Name": "Runic Catgut",
+            "Amount": 2
+          }
+        ]
+      }
+    ]
+  },
+  "SilkweaveRobe": {
+    "ItemId": 126987,
+    "ObliterumYield": 4,
+    "Name": "Silkweave Robe",
+    "RecipeRank": [
+      {
+        "Rank": 1,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124437,
+            "Name": "Shal'dorei Silk",
+            "Amount": 32
+          },
+		  {
+            "Id": 127037,
+            "Name": "Runic Catgut",
+            "Amount": 2
+          }
+        ]
+      },
+      {
+        "Rank": 2,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124437,
+            "Name": "Shal'dorei Silk",
+            "Amount": 24
+          },
+		  {
+            "Id": 127037,
+            "Name": "Runic Catgut",
+            "Amount": 2
+          }
+        ]
+      },
+      {
+        "Rank": 3,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124437,
+            "Name": "Shal'dorei Silk",
+            "Amount": 16
+          },
+		  {
+            "Id": 127037,
+            "Name": "Runic Catgut",
+            "Amount": 2
+          }
+        ]
+      }
+    ]
+  },
+  "SilkweaveSlippers": {
+    "ItemId": 126988,
+    "ObliterumYield": 2.5,
+    "Name": "Silkweave Slippers",
+    "RecipeRank": [
+      {
+        "Rank": 1,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124437,
+            "Name": "Shal'dorei Silk",
+            "Amount": 24
+          },
+		  {
+            "Id": 127037,
+            "Name": "Runic Catgut",
+            "Amount": 1
+          }
+        ]
+      },
+      {
+        "Rank": 2,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124437,
+            "Name": "Shal'dorei Silk",
+            "Amount": 18
+          },
+		  {
+            "Id": 127037,
+            "Name": "Runic Catgut",
+            "Amount": 1
+          }
+        ]
+      },
+      {
+        "Rank": 3,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124437,
+            "Name": "Shal'dorei Silk",
+            "Amount": 12
+          },
+		  {
+            "Id": 127037,
+            "Name": "Runic Catgut",
+            "Amount": 1
+          }
+        ]
+      }
+    ]
+  },
+  "SilkweaveCover": {
+    "ItemId": 127016,
+    "ObliterumYield": 5.5,
+    "Name": "Silkweave Cover",
+    "RecipeRank": [
+      {
+        "Rank": 1,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124437,
+            "Name": "Shal'dorei Silk",
+            "Amount": 35
+          },
+		  {
+            "Id": 127037,
+            "Name": "Runic Catgut",
+            "Amount": 1
+          },
+		  {
+            "Id": 127681,
+            "Name": "Sharp Spritethorn",
+            "Amount": 1
+          }
+        ]
+      }
+    ]
+  },
+  "SilkweaveDrape": {
+    "ItemId": 127017,
+    "ObliterumYield": 5.5,
+    "Name": "Silkweave Drape",
+    "RecipeRank": [
+      {
+        "Rank": 1,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124437,
+            "Name": "Shal'dorei Silk",
+            "Amount": 35
+          },
+		  {
+            "Id": 127037,
+            "Name": "Runic Catgut",
+            "Amount": 1
+          },
+		  {
+            "Id": 127681,
+            "Name": "Sharp Spritethorn",
+            "Amount": 1
+          }
+        ]
+      }
+    ]
+  },
+  "SilkweaveFlourish": {
+    "ItemId": 127032,
+    "ObliterumYield": 5.5,
+    "Name": "Silkweave Flourish",
+    "RecipeRank": [
+      {
+        "Rank": 1,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124437,
+            "Name": "Shal'dorei Silk",
+            "Amount": 35
+          },
+		  {
+            "Id": 127037,
+            "Name": "Runic Catgut",
+            "Amount": 1
+          },
+		  {
+            "Id": 127681,
+            "Name": "Sharp Spritethorn",
+            "Amount": 1
+          }
+        ]
+      }
+    ]
+  },
+  "SilkweaveShade": {
+    "ItemId": 127031,
+    "ObliterumYield": 5.5,
+    "Name": "Silkweave Shade",
+    "RecipeRank": [
+      {
+        "Rank": 1,
+        "Yield": 1,
+        "Reagents": [
+          {
+            "Id": 124437,
+            "Name": "Shal'dorei Silk",
+            "Amount": 35
+          },
+		  {
+            "Id": 127037,
+            "Name": "Runic Catgut",
+            "Amount": 1
+          },
+		  {
+            "Id": 127681,
+            "Name": "Sharp Spritethorn",
+            "Amount": 1
+          }
+        ]
+      }
+    ]
+  },
+"ImbuedSilkweaveBracers": {
+  "ItemId": 127002,
+  "ObliterumYield": 25,
+  "Name": "Imbued Silkweave Bracers",
+  "RecipeRank": [
+    {
+      "Rank": 1,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 85
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 1
+        },
+    {
+          "Id": 124115,
+          "Name": "Stormscale",
+          "Amount": 80
+        }
+      ]
+    },
+    {
+      "Rank": 2,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 55
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 1
+        },
+    {
+          "Id": 124115,
+          "Name": "Stormscale",
+          "Amount": 40
+        }
+      ]
+    },
+    {
+      "Rank": 3,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 55
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 1
+        }
+      ]
+    }
+  ]
+},
+"ImbuedSilkweaveCinch": {
+  "ItemId": 127001,
+  "ObliterumYield": 20,
+  "Name": "Imbued Silkweave Cinch",
+  "RecipeRank": [
+    {
+      "Rank": 1,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 12
+        },
+    {
+          "Id": 124124,
+          "Name": "Blood of Sargeras",
+          "Amount": 3
+        },
+    {
+          "Id": 124439,
+          "Name": "Unbroken Tooth",
+          "Amount": 20
+        }
+      ]
+    },
+    {
+      "Rank": 2,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 6
+        },
+    {
+          "Id": 124124,
+          "Name": "Blood of Sargeras",
+          "Amount": 2
+        },
+    {
+          "Id": 124439,
+          "Name": "Unbroken Tooth",
+          "Amount": 10
+        }
+      ]
+    },
+    {
+      "Rank": 3,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 6
+        },
+    {
+          "Id": 124124,
+          "Name": "Blood of Sargeras",
+          "Amount": 2
+        }
+      ]
+    }
+  ]
+},
+"ImbuedSilkweaveCover": {
+  "ItemId": 127019,
+  "ObliterumYield": 0,
+  //Find yield
+  "Name": "Imbued Silkweave Cover",
+  "RecipeRank": [
+    {
+      "Rank": 1,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 50
+        },
+    {
+          "Id": 124124,
+          "Name": "Blood of Sargeras",
+          "Amount": 3
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 3
+        },
+    {
+          "Id": 127681,
+          "Name": "Sharp Spritethorn",
+          "Amount": 2
+        }
+      ]
+    },
+    {
+      "Rank": 2,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 40
+        },
+    {
+          "Id": 124124,
+          "Name": "Blood of Sargeras",
+          "Amount": 2
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 3
+        },
+    {
+          "Id": 127681,
+          "Name": "Sharp Spritethorn",
+          "Amount": 2
+        }
+      ]
+    },
+    {
+      "Rank": 3,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 35
+        },
+    {
+          "Id": 124124,
+          "Name": "Blood of Sargeras",
+          "Amount": 2
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 3
+        },
+    {
+          "Id": 127681,
+          "Name": "Sharp Spritethorn",
+          "Amount": 2
+        }
+      ]
+    }
+  ]
+},
+"ImbuedSilkweaveDrape": {
+  "ItemId": 127020,
+  "ObliterumYield": 0,
+  //Find yield
+  "Name": "Imbued Silkweave Drape",
+  "RecipeRank": [
+    {
+      "Rank": 1,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 50
+        },
+    {
+          "Id": 124124,
+          "Name": "Blood of Sargeras",
+          "Amount": 3
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 4
+        },
+    {
+          "Id": 127681,
+          "Name": "Sharp Spritethorn",
+          "Amount": 1
+        }
+      ]
+    },
+    {
+      "Rank": 2,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 40
+        },
+    {
+          "Id": 124124,
+          "Name": "Blood of Sargeras",
+          "Amount": 2
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 4
+        },
+    {
+          "Id": 127681,
+          "Name": "Sharp Spritethorn",
+          "Amount": 1
+        }
+      ]
+    },
+    {
+      "Rank": 3,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 35
+        },
+    {
+          "Id": 124124,
+          "Name": "Blood of Sargeras",
+          "Amount": 2
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 4
+        },
+    {
+          "Id": 127681,
+          "Name": "Sharp Spritethorn",
+          "Amount": 1
+        }
+      ]
+    }
+  ]
+},
+"ImbuedSilkweaveEpaulets": {
+  "ItemId": 127000,
+  "ObliterumYield": 0,
+  //Find yield
+  "Name": "Imbued Silkweave Epaulets",
+  "RecipeRank": [
+    {
+      "Rank": 1,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 12
+        },
+    {
+          "Id": 124124,
+          "Name": "Blood of Sargeras",
+          "Amount": 3
+        },
+    {
+          "Id": 124440,
+          "Name": "Arkhana",
+          "Amount": 8
+        }
+      ]
+    },
+    {
+      "Rank": 2,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 6
+        },
+    {
+          "Id": 124124,
+          "Name": "Blood of Sargeras",
+          "Amount": 2
+        },
+    {
+          "Id": 124440,
+          "Name": "Arkhana",
+          "Amount": 4
+        }
+      ]
+    },
+    {
+      "Rank": 3,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 6
+        },
+    {
+          "Id": 124124,
+          "Name": "Blood of Sargeras",
+          "Amount": 2
+        }
+      ]
+    }
+  ]
+},
+"ImbuedSilkweaveFlourish": {
+  "ItemId": 127034,
+  "ObliterumYield": 0,
+  //Find yield
+  "Name": "Imbued Silkweave Flourish",
+  "RecipeRank": [
+    {
+      "Rank": 1,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 50
+        },
+    {
+          "Id": 124124,
+          "Name": "Blood of Sargeras",
+          "Amount": 3
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 1
+        },
+    {
+          "Id": 127681,
+          "Name": "Sharp Spritethorn",
+          "Amount": 4
+        }
+      ]
+    },
+    {
+      "Rank": 2,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 40
+        },
+    {
+          "Id": 124124,
+          "Name": "Blood of Sargeras",
+          "Amount": 2
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 1
+        },
+    {
+          "Id": 127681,
+          "Name": "Sharp Spritethorn",
+          "Amount": 4
+        }
+      ]
+    },
+    {
+      "Rank": 3,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 35
+        },
+    {
+          "Id": 124124,
+          "Name": "Blood of Sargeras",
+          "Amount": 2
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 1
+        },
+    {
+          "Id": 127681,
+          "Name": "Sharp Spritethorn",
+          "Amount": 4
+        }
+      ]
+    }
+  ]
+},
+"ImbuedSilkweaveGloves": {
+  "ItemId": 126997,
+  "ObliterumYield": 0,
+  //Find yield
+  "Name": "Imbued Silkweave Gloves",
+  "RecipeRank": [
+    {
+      "Rank": 1,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 90
+        },
+    {
+          "Id": 124113,
+          "Name": "Stonehide Leather",
+          "Amount": 80
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 3
+        }
+      ]
+    },
+    {
+      "Rank": 2,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 55
+        },
+    {
+          "Id": 124113,
+          "Name": "Stonehide Leather",
+          "Amount": 40
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 3
+        }
+      ]
+    },
+    {
+      "Rank": 3,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 55
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 3
+        }
+      ]
+    }
+  ]
+},
+"ImbuedSilkweaveHood": {
+  "ItemId": 126998,
+  "ObliterumYield": 70,
+  "Name": "Imbued Silkweave Hood",
+  "RecipeRank": [
+    {
+      "Rank": 1,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 16
+        },
+    {
+          "Id": 124124,
+          "Name": "Blood of Sargeras",
+          "Amount": 3
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 1
+        },
+    {
+          "Id": 127681,
+          "Name": "Sharp Spritethorn",
+          "Amount": 1
+        },
+    {
+          "Id": 130183,
+          "Name": "Shadowruby",
+          "Amount": 6
+        },
+    {
+          "Id": 124106,
+          "Name": "Felwort",
+          "Amount": 2
+        }
+      ]
+    },
+    {
+      "Rank": 2,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 8
+        },
+    {
+          "Id": 124124,
+          "Name": "Blood of Sargeras",
+          "Amount": 2
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 1
+        },
+    {
+          "Id": 127681,
+          "Name": "Sharp Spritethorn",
+          "Amount": 1
+        },
+    {
+          "Id": 130183,
+          "Name": "Shadowruby",
+          "Amount": 3
+        },
+    {
+          "Id": 124106,
+          "Name": "Felwort",
+          "Amount": 2
+        }
+      ]
+    },
+    {
+      "Rank": 3,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 8
+        },
+    {
+          "Id": 124124,
+          "Name": "Blood of Sargeras",
+          "Amount": 2
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 1
+        },
+    {
+          "Id": 127681,
+          "Name": "Sharp Spritethorn",
+          "Amount": 1
+        },
+    {
+          "Id": 124106,
+          "Name": "Felwort",
+          "Amount": 2
+        }
+      ]
+    }
+  ]
+},
+"ImbuedSilkweavePantaloons": {
+  "ItemId": 126999,
+  "ObliterumYield": 70,
+  "Name": "Imbued Silkweave Pantaloons",
+  "RecipeRank": [
+    {
+      "Rank": 1,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 16
+        },
+    {
+          "Id": 124124,
+          "Name": "Blood of Sargeras",
+          "Amount": 3
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 2
+        },
+    {
+          "Id": 127681,
+          "Name": "Sharp Spritethorn",
+          "Amount": 1
+        },
+    {
+          "Id": 124437,
+          "Name": "Shal'dorei Silk",
+          "Amount": 20
+        },
+    {
+          "Id": 124106,
+          "Name": "Felwort",
+          "Amount": 2
+        }
+      ]
+    },
+    {
+      "Rank": 2,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 8
+        },
+    {
+          "Id": 124124,
+          "Name": "Blood of Sargeras",
+          "Amount": 2
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 2
+        },
+    {
+          "Id": 127681,
+          "Name": "Sharp Spritethorn",
+          "Amount": 1
+        },
+    {
+          "Id": 124437,
+          "Name": "Shal'dorei Silk",
+          "Amount": 10
+        },
+    {
+          "Id": 124106,
+          "Name": "Felwort",
+          "Amount": 2
+        }
+      ]
+    },
+    {
+      "Rank": 3,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 8
+        },
+    {
+          "Id": 124124,
+          "Name": "Blood of Sargeras",
+          "Amount": 2
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 2
+        },
+    {
+          "Id": 127681,
+          "Name": "Sharp Spritethorn",
+          "Amount": 1
+        },
+    {
+          "Id": 124106,
+          "Name": "Felwort",
+          "Amount": 2
+        }
+      ]
+    }
+  ]
+},
+"ImbuedSilkweaveRobe": {
+  "ItemId": 126995,
+  "ObliterumYield": 70,
+  "Name": "Imbued Silkweave Robe",
+  "RecipeRank": [
+    {
+      "Rank": 1,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 90
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 2
+        },
+    {
+          "Id": 123918,
+          "Name": "Leystone Ore",
+          "Amount": 80
+        },
+    {
+          "Id": 124106,
+          "Name": "Felwort",
+          "Amount": 2
+        }
+      ]
+    },
+    {
+      "Rank": 2,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 60
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 2
+        },
+    {
+          "Id": 123918,
+          "Name": "Leystone Ore",
+          "Amount": 40
+        },
+    {
+          "Id": 124106,
+          "Name": "Felwort",
+          "Amount": 2
+        }
+      ]
+    },
+    {
+      "Rank": 3,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 8
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 2
+        },
+    {
+          "Id": 124106,
+          "Name": "Felwort",
+          "Amount": 2
+        }
+      ]
+    }
+  ]
+},
+"ImbuedSilkweaveShade": {
+  "ItemId": 127033,
+  "ObliterumYield": 0,
+  //Find Yield
+  "Name": "Imbued Silkweave Shade",
+  "RecipeRank": [
+    {
+      "Rank": 1,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 50
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 2
+        },
+    {
+          "Id": 124124,
+          "Name": "Blood of Sargeras",
+          "Amount": 3
+        },
+    {
+          "Id": 127681,
+          "Name": "Sharp Spritethorn",
+          "Amount": 3
+        }
+      ]
+    },
+    {
+      "Rank": 2,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 40
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 2
+        },
+    {
+          "Id": 124124,
+          "Name": "Blood of Sargeras",
+          "Amount": 2
+        },
+    {
+          "Id": 127681,
+          "Name": "Sharp Spritethorn",
+          "Amount": 3
+        }
+      ]
+    },
+    {
+      "Rank": 3,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 35
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 2
+        },
+    {
+          "Id": 124124,
+          "Name": "Blood of Sargeras",
+          "Amount": 2
+        },
+    {
+          "Id": 127681,
+          "Name": "Sharp Spritethorn",
+          "Amount": 3
+        }
+      ]
+    }
+  ]
+},
+"ImbuedSilkweaveSlippers": {
+  "ItemId": 126996,
+  "ObliterumYield": 20,
+  "Name": "Imbued Silkweave Slippers",
+  "RecipeRank": [
+    {
+      "Rank": 1,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 12
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 1
+        },
+    {
+          "Id": 124124,
+          "Name": "Blood of Sargeras",
+          "Amount": 3
+        },
+    {
+          "Id": 124438,
+          "Name": "Unbroken Claw",
+          "Amount": 20
+        }
+      ]
+    },
+    {
+      "Rank": 2,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 6
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 1
+        },
+    {
+          "Id": 124124,
+          "Name": "Blood of Sargeras",
+          "Amount": 2
+        },
+    {
+          "Id": 124438,
+          "Name": "Unbroken Claw",
+          "Amount": 10
+        }
+      ]
+    },
+    {
+      "Rank": 3,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 6
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 1
+        },
+    {
+          "Id": 124124,
+          "Name": "Blood of Sargeras",
+          "Amount": 2
+        }
+      ]
+    }
+  ]
+},
+"SilkweaveSatchel": {
+  "ItemId": 127035,
+  "ObliterumYield": 0,
+  "Name": "Silkweave Satchel",
+  "RecipeRank": [
+    {
+      "Rank": 1,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 124437,
+          "Name": "Shal'dorei Silk",
+          "Amount": 90
+        }
+      ]
+    }
+  ]
+},
+"BloodtotemSaddleBlanket": {
+  "ItemId": 139503,
+  "ObliterumYield": 0,
+  "Name": "Bloodtotem Saddle Blanket",
+  "RecipeRank": [
+    {
+      "Rank": 1,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 124437,
+          "Name": "Shal'dorei Silk",
+          "Amount": 25
+        }
+      ]
+    }
+  ]
+},
+"DalaranCitizens": {
+  "ItemId": 137556,
+  "ObliterumYield": 0,
+  "Name": "Dalaran Citizens",
+  "RecipeRank": [
+    {
+      "Rank": 1,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 124437,
+          "Name": "Shal'dorei Silk",
+          "Amount": 50
+        }
+      ]
+    }
+  ]
+},
+"KarazhanOperaHouse": {
+  "ItemId": 137557,
+  "ObliterumYield": 0,
+  "Name": "Karazhan Opera House",
+  "RecipeRank": [
+    {
+      "Rank": 1,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 124437,
+          "Name": "Shal'dorei Silk",
+          "Amount": 40
+        },
+        {
+          "Id": 21840,
+          "Name": "Bolt of Netherweave",
+          "Amount": 1
+        }
+      ]
+    }
+  ]
+},
+"MoltenCore": {
+  "ItemId": 137558,
+  "ObliterumYield": 0,
+  "Name": "Molten Core",
+  "RecipeRank": [
+    {
+      "Rank": 1,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 124437,
+          "Name": "Shal'dorei Silk",
+          "Amount": 50
+        },
+        {
+          "Id": 14048,
+          "Name": "Bolt of Runecloth",
+          "Amount": 1
+        }
+      ]
+    }
+  ]
+},
+"ImbuedSilkweave": {
+  "ItemId": 185962,
+  "ObliterumYield": 0,
+  "Name": "Imbued Silkweave",
+  "RecipeRank": [
+    {
+      "Rank": 1,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 124437,
+          "Name": "Shal'dorei Silk",
+          "Amount": 10
+        },
+        {
+          "Id": 124440,
+          "Name": "Arkhana",
+          "Amount": 3
+        }
+      ]
+    }
+  ]
+},
+//ImbuedSilkweaveBag - 142075
+"ImbuedSilkweaveBag": {
+  "ItemId": 142075,
+  "ObliterumYield": 0,
+  "Name": "Imbued Silkweave Bag",
+  "RecipeRank": [
+    {
+      "Rank": 1,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 100
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 20
+        },
+    {
+          "Id": 124124,
+          "Name": "Blood of Sargeras",
+          "Amount": 10
+        }
+      ]
+    },
+    {
+      "Rank": 2,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 75
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 15
+        },
+    {
+          "Id": 124124,
+          "Name": "Blood of Sargeras",
+          "Amount": 8
+        }
+      ]
+    },
+    {
+      "Rank": 3,
+      "Yield": 1,
+      "Reagents": [
+        {
+          "Id": 127004,
+          "Name": "Imbued Silkweave",
+          "Amount": 60
+        },
+    {
+          "Id": 127037,
+          "Name": "Runic Catgut",
+          "Amount": 10
+        },
+    {
+          "Id": 124124,
+          "Name": "Blood of Sargeras",
+          "Amount": 8
+        }
+      ]
+    }
+  ]
 }
