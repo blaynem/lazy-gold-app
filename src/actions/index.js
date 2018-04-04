@@ -5,18 +5,28 @@ import {
 } from '../constants'
 
 import { mockData } from '../mockData';
-//test
 // used to fetch the item data from our api. but since right now we're just
 // using our local mocdata, it doesn't need to be hooked up
 export function fetchItemData() {
   return(dispatch) => {
-    dispatch({ type: FETCH_ITEM_DATA, payload: mockData })
+    const dataObj = (data) => data.reduce((acc, curr) => {
+      if (curr.ItemID !== undefined){
+        acc[curr.ItemID] = { ...curr, Id: curr.ItemID }
+        return acc
+      }
+      acc[curr.Id || curr.ItemID] = curr
+      return acc
+    }, {})
+    const mockpayload = dataObj(mockData)
+    dispatch({ type: FETCH_ITEM_DATA, payload: mockpayload })
+
     // axios({
     //   method: 'get',
     //   url: `${apiConfig.serverGet}?server=hyjal`,
     // })
     // .then( res => {
-    //   console.log(res)
+    //   const payload = dataObj(res.data.Items)
+    //   dispatch({ type: FETCH_ITEM_DATA, payload })
     // })
     // .catch(err => {
     //   console.log(err)

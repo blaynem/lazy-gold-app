@@ -4,7 +4,7 @@ import {
 
 const INITIAL_STATE = {
   loading: false,
-  data: null
+  data: []
 }
 
 // these are the only properties in the current object, so try not to use any of the other ones right now.
@@ -25,13 +25,9 @@ export default function itemsReducer(state = INITIAL_STATE, action){
   switch(action.type){
     // when we fetch the data, we want to create an object for our state that uses all the items IDs.
     case FETCH_ITEM_DATA:
-      const dataObj = action.payload.reduce((acc, curr) => {
-        acc[curr.Id] = curr
-        return acc
-      })
       return {
         ...state,
-        data: dataObj
+        data: action.payload
       }
     
     default:

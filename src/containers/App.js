@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Grid, Jumbotron } from 'react-bootstrap';
+import { Route } from 'react-router-dom'
 
 import { fetchItemData } from '../actions'
-import AlchemyContainer from './Alchemy_Container';
+import ItemContainer from './Item_Container';
 
 class App extends Component {
   render() {
@@ -14,7 +15,7 @@ class App extends Component {
           <h1>Lazy Gold Maker</h1>
           <p>Gold made lazily.</p>
         </Jumbotron>
-        <AlchemyContainer />
+        <Route path="/:profession" component={ItemContainer} />
       </Grid>
     );
   }
