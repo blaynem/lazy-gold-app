@@ -147,6 +147,7 @@ export const names = {
   DreadleatherBindings: 128891,
   SawedOffCranialCannon: 132505,
   RuggedSkullblasters: 144332,
+  FiendishLeather: 151566,
   FiendishShoulderguards: 151577,
   EmpyrialDeepCrown: 151588,
   BattleboundHauberk: 128892,

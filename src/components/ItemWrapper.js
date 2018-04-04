@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux'
 
 import { ItemLayout } from './ItemLayout'
 
@@ -34,8 +35,17 @@ class ItemWrapper extends Component {
   }
   render() {
     const { rankValue } = this.state
-    const { itemData, obliterumData } = this.props
-    const { ObliterumYield, RecipeRank } = this.props.craftingInfo
+    const {
+      craftingInfo,
+      craftingInfo: { ObliterumYield, RecipeRank },
+      itemData,
+      itemName,
+      obliterumData
+    } = this.props
+    if (itemData === undefined || craftingInfo === undefined){
+      console.error(`Couldn't find data for item: ${itemName}`)
+      return null
+    }
     // ahprice recieved from database
     const ahPrice = itemData.MarketValue
     // calculated crafting cost
@@ -64,4 +74,8 @@ class ItemWrapper extends Component {
   }
 }
 
-export default ItemWrapper
+const mapStateToProps = state => ({
+  obliterumData: state.items.data[124125]
+})
+
+export default connect(mapStateToProps, null)(ItemWrapper)

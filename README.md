@@ -53,7 +53,7 @@ View the [Recipe Format JSON](src/recipeFormatExample.json) file in order to bet
 - [ ] Check on Potion of Prolonged Power and how it's obliterum is calculated as its "yield" is 10, and obliterumYield may need to take that into consideration.
   - [ ] Does it really only average 10.4...?
   - [ ] May need to do a calculation on crafted `yield` x `obliterumYield`
-- [ ] Hook up the API (it's not being used now in order to save bandwith / cost of calls from AWS while in development.)
+- [x] Hook up the API (it's not being used now in order to save bandwith / cost of calls from AWS while in development.)
 - [ ] Implement search bar for items.
 - [ ] Implement API input.
 - [x] Will need to refactor the Rank Selector widget from the static 1-3 rankings and replace them with a dynamic one that will update, well, dynamically, depending on how many ranks there are.. That sounds redundant.

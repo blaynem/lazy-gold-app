@@ -4,7 +4,7 @@ import { convertToGold } from '../utils';
 
 import { RankSelector } from '../Widgets/RankSelector';
 
-const parsePrices = (price) => {
+const renderPrices = (price) => {
   const priceObj = convertToGold(price)
   // converts the pricing we recieved into an object so we can use the fancy coloring on leters.
   return (
@@ -32,10 +32,10 @@ export const ItemLayout = ({
       availableRanks={availableRanks}
       value={rankValue}
       handleChange={handleChange}/>
-    <span>AH Price: {parsePrices(ahPrice)}</span>
-    <span>Crafting Cost: {parsePrices(craftingCost)}</span>
+    <span>AH Price: {renderPrices(ahPrice)}</span>
+    <span>Crafting Cost: {renderPrices(craftingCost)}</span>
     <span>Obliterum Yield: <span>{obliterumYield}</span></span>
-    <span>Obliterum Profit: {parsePrices(obliterumProfit)}</span>
-    <span>AH Profit: {parsePrices(ahProfit)}</span>
+    <span>Obliterum Profit: {renderPrices(obliterumProfit)}</span>
+    <span>AH Profit: {renderPrices(ahProfit)}</span>
   </ListGroupItem>
 )

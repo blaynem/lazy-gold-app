@@ -7,17 +7,16 @@
 .list-group-item-text {
   display: flex;
 }
-/* gives each item equal width */
+/* this should target the label of the prices i.e.: AH Price */
 .list-group-item-text > * {
   flex: 2;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
 }
 /* sets the rank field to have less of a flex so it doesn't push items to the next line */
 .list-group-item-text > *:first-child{
   flex: 1;
-}
-/* this should target the label of the prices i.e.: AH Price */
-.list-group-item-text > * {
-  font-weight: 600;
 }
 /* this should target the prices of the items, i.e. 32g 14s 21c */
 .list-group-item-text > * > *:first-child {
