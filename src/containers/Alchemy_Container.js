@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { ListGroup, PageHeader } from 'react-bootstrap';
 
@@ -65,7 +65,7 @@ class AlchemyContainer extends Component {
     const fifthRow = ["FlaskofTenThousandScars", "FlaskoftheCountlessArmies", "FlaskoftheWhisperedPact", "FlaskoftheSeventhDemon"]
     const sixthRow = ["AstralAlchemistStone", "LightbloodElixir", "TearsoftheNaaru", "AstralHealingPotion"]
     return (
-      <div>
+      <Fragment>
         <PageHeader>
           Alchemy page
         </PageHeader>
@@ -76,7 +76,7 @@ class AlchemyContainer extends Component {
         <ListGroup>{this.createMapList(fifthRow)}</ListGroup>
         <ListGroup>{this.createMapList(sixthRow)}</ListGroup>
         {/* {this.testNew()} */}
-      </div>
+      </Fragment>
     );
   }
 }

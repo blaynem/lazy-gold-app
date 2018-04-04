@@ -42,7 +42,7 @@ View the [Recipe Format JSON](src/recipeFormatExample.json) file in order to bet
   - [ ] Inscription
   - [x] Leatherworking
   - [ ] Engineering
-  - [ ] Tailoring
+  - [x] Tailoring
   - [ ] BoS and Primal Sargerite
 - [ ] Give each item a page that has a list of the recipes it is included in.
   - [ ] Including data about the item.
