@@ -10,18 +10,14 @@ import ItemWrapper from "../components/ItemWrapper";
 
 class ItemContainer extends Component {
   createMapList = itemsToMap => {
-    const { items, obliterumData } = this.props;
-    return [...itemsToMap].map(item => {
-      if (recipes[item] === undefined || items.data[names[item]] === undefined){
-        console.error(`Couldn't find data for item: ${item}`)
-        return null
-      }
+    const { items } = this.props;
+    return itemsToMap.map(item => {
       return (
         <ItemWrapper
           key={item}
           craftingInfo={recipes[item]}
+          itemName={item}
           itemData={items.data[names[item]]}
-          obliterumData={obliterumData}
           recipeItemsData={getRecipeItemsList(recipes[item], items)}
         />
       );
@@ -51,8 +47,7 @@ class ItemContainer extends Component {
 
 function mapStateToProps(state) {
   return {
-    items: state.items,
-    obliterumData: state.items.data[124125]
+    items: state.items
   };
 }
 

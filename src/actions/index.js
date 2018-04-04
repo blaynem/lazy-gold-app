@@ -10,12 +10,16 @@ import { mockData } from '../mockData';
 export function fetchItemData() {
   return(dispatch) => {
     const dataObj = (data) => data.reduce((acc, curr) => {
-      if (curr.ItemID !== undefined){
-        acc[curr.ItemID] = { ...curr, Id: curr.ItemID }
+      if ( curr.Id === undefined && curr.ItemID === undefined ){
+        console.warn('There was a problem processing', curr)
         return acc
       }
-      acc[curr.Id || curr.ItemID] = curr
-      return acc
+      return {
+        ...acc,
+        [curr.Id || curr.ItemID]: {
+          ...curr
+        }
+      }
     }, {})
     const mockpayload = dataObj(mockData)
     dispatch({ type: FETCH_ITEM_DATA, payload: mockpayload })
