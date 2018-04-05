@@ -12,6 +12,7 @@ class ItemContainer extends Component {
   createMapList = itemsToMap => {
     const { items } = this.props;
     return itemsToMap.map(item => {
+      
       return (
         <ItemWrapper
           key={item}
@@ -23,10 +24,6 @@ class ItemContainer extends Component {
       );
     });
   };
-  // testNew will be used to test all of the recently added recipes.
-  testNew = () => {
-    return this.createMapList(Object.keys(recipes))
-  }
   render() {
     const { profession } = this.props.match.params
     
@@ -39,7 +36,6 @@ class ItemContainer extends Component {
           {profession} page
         </PageHeader>
         <ListGroup>{this.createMapList(recipePages[profession])}</ListGroup>
-        {/* {this.testNew()} */}
       </Fragment>
     );
   }

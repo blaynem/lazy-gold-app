@@ -1,0 +1,25 @@
+.jumbotron {
+  margin: 0;
+}
+.Navbar {
+  display: flex;
+  background: #e9ecef;
+  &-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 200px;
+    border: 1px solid gray;
+    color: black;
+    text-transform: uppercase;
+    &:hover {
+      color: black;
+      background: lightblue;
+      text-decoration: none;
+    }
+    &.active {
+      background: lightblue;
+    }
+  }
+}
