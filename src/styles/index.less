@@ -1,6 +1,7 @@
 .jumbotron {
   margin: 0;
 }
+
 .Navbar {
   display: flex;
   background: #e9ecef;
@@ -21,5 +22,44 @@
     &.active {
       background: lightblue;
     }
+  }
+}
+
+.list-group-item {
+  .list-group-item-danger {
+    border-bottom: 3px solid #a94442;
+  }
+  .list-group-item-success {
+    border-bottom: 3px solid #3c763d;
+  }
+  &-text {
+    display: flex;
+    & > * {
+      flex: 2;
+      font-weight: 600;
+      display: flex;
+      flex-direction: column;
+      &:first-child {
+        flex: 1;
+      }
+      & > * {
+        font-weight: 100;
+      }
+    }
+  }
+}
+
+.prices {
+  font-weight: 400;
+  &-gold{
+    color: #CAAA00;
+    margin-right: 3px;
+  }
+  &-silver{
+    color: #777;
+    margin-right: 3px;
+  }
+  &-copper{
+    color: #B87333;
   }
 }
