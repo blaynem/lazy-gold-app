@@ -6,6 +6,8 @@ import { Route } from 'react-router-dom'
 import { fetchItemData } from '../actions'
 import ItemContainer from './Item_Container';
 
+import '../styles/index.less'
+
 class App extends Component {
   render() {
     this.props.fetchItemData()
