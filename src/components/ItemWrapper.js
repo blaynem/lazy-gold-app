@@ -7,7 +7,7 @@ class ItemWrapper extends Component {
   constructor(props){
     super(props)
 
-    const highestRankCraft = ( this.props.craftingInfo.RecipeRank.length - 1)
+    const highestRankCraft = ( this.props.itemData.recipe.RecipeRank.length - 1)
     this.state = { rankValue: highestRankCraft }
   }
   // handles the change of the fields via the name and value that
@@ -17,15 +17,15 @@ class ItemWrapper extends Component {
     this.setState({ [name]: value })
   }
   calculateCraftingCost = () => {
-    const { craftingInfo, recipeItemsData } = this.props
+    const { itemData } = this.props
     const { rankValue } = this.state
     // we get the materials from the recipeRank const defined on bottom of page
     // const materials = recipeRank[rankValue]
-    const materials = craftingInfo.RecipeRank[rankValue]
+    const materials = itemData.recipe.RecipeRank[rankValue]
     // to calculate, we iterate over the reagants of the materials needed:
     // mat total price consists of the materials current marketValue and the amount needed to create the item
     const costToCraft = (materials.Reagents).reduce( (acc, matItem) => {
-      const matPrice = recipeItemsData[matItem.Id].MarketValue
+      const matPrice = itemData.reagentData[matItem.Id].MarketValue
       const total = matPrice * matItem.Amount
       return acc + total
     }, 0)
@@ -36,14 +36,13 @@ class ItemWrapper extends Component {
   render() {
     const { rankValue } = this.state
     const {
-      craftingInfo,
-      craftingInfo: { ObliterumYield, RecipeRank },
       itemData,
-      itemName,
       obliterumData
     } = this.props
-    if (itemData === undefined || craftingInfo === undefined){
-      console.error(`Couldn't find data for item: ${itemName}`)
+
+    const { ObliterumYield, RecipeRank } = itemData.recipe
+    if (itemData === undefined || itemData.recipe === undefined){
+      console.error(`Couldn't find data for item: ${itemData.Name}`)
       return null
     }
     // ahprice recieved from database
@@ -58,6 +57,7 @@ class ItemWrapper extends Component {
     // ahProfit is calculated by the current price in the AH,
     // minus the AH (5%) cut, and subtract the crafting costs    
     const ahProfit = ahPrice * .95 - craftingCost
+
     return (
       <ItemLayout
         ahPrice={ahPrice}
@@ -75,7 +75,7 @@ class ItemWrapper extends Component {
 }
 
 const mapStateToProps = state => ({
-  obliterumData: state.items.data[124125]
+  obliterumData: state.rawData.data.find( item => item.Id === 124125)
 })
 
 export default connect(mapStateToProps, null)(ItemWrapper)

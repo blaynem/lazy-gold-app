@@ -24,7 +24,8 @@ export const ItemLayout = ({
   name,
   obliterumProfit,
   obliterumYield,
-  rankValue }) => (
+  rankValue
+}) => (
   <ListGroupItem
     bsStyle={ahProfit > 1 ? "success" : "danger"}
     header={name}>

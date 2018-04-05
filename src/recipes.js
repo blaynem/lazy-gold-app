@@ -165,7 +165,7 @@ export const recipes = {
     ]
   },
   "DraughtofRawMagic": {
-    "ItemId": 127836,
+    "ItemId": 127837,
     "ObliterumYield": 1.5,
     "Name": "Ancient Rejuvenation Potion",
     "RecipeRank": [
@@ -3462,7 +3462,7 @@ export const recipes = {
     "ItemId": 151571,
     "ObliterumYield": 0,
     //Find out ObliterumYield if any
-    "Name": "Fiendish Breeches",
+    "Name": "Lightweave Breeches",
     "RecipeRank": [
       {
         "Rank": 1,

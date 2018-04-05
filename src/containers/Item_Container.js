@@ -2,24 +2,21 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { ListGroup, PageHeader } from 'react-bootstrap';
 
-import { getRecipeItemsList } from '../utils'
-import { recipes } from "../recipes";
-import { names } from "../constants/namesInObj";
-import { recipePages } from "../constants/recipepage";
 import ItemWrapper from "../components/ItemWrapper";
 
 class ItemContainer extends Component {
-  createMapList = itemsToMap => {
+  createMapList = profession => {
     const { items } = this.props;
-    return itemsToMap.map(item => {
-      
+    return items[profession].map(itemId => {
+      const itemObj = items.data[itemId]
+      if ( itemObj === undefined ) {
+        console.error(`Please notify me that an item with ID:${itemId} is not working correctly.`)
+        return null
+      }
       return (
         <ItemWrapper
-          key={item}
-          craftingInfo={recipes[item]}
-          itemName={item}
-          itemData={items.data[names[item]]}
-          recipeItemsData={getRecipeItemsList(recipes[item], items)}
+          key={itemId}
+          itemData={itemObj}
         />
       );
     });
@@ -27,15 +24,14 @@ class ItemContainer extends Component {
   render() {
     const { profession } = this.props.match.params
     
-    if ( recipePages[profession] === undefined ){
-      return <h3>Data is borked.</h3>
-    }
     return (
       <Fragment>
         <PageHeader>
           {profession} page
         </PageHeader>
-        <ListGroup>{this.createMapList(recipePages[profession])}</ListGroup>
+        <ListGroup>
+          {this.createMapList(profession)}
+        </ListGroup>
       </Fragment>
     );
   }
@@ -43,7 +39,7 @@ class ItemContainer extends Component {
 
 function mapStateToProps(state) {
   return {
-    items: state.items
+    items: state.items,
   };
 }
 
