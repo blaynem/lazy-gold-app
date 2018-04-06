@@ -7,6 +7,7 @@ import ItemWrapper from "../components/ItemWrapper";
 class ItemContainer extends Component {
   createMapList = profession => {
     const { items } = this.props;
+
     return items[profession].map(itemId => {
       const itemObj = items.data[itemId]
       if ( itemObj === undefined ) {
@@ -22,8 +23,9 @@ class ItemContainer extends Component {
     });
   };
   render() {
+    const { items } = this.props
     const { profession } = this.props.match.params
-    
+    if(items[profession] === undefined) return <div>Error Request</div>
     return (
       <Fragment>
         <PageHeader>
