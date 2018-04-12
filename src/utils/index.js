@@ -1,7 +1,8 @@
 import {
-  mockBloodofSargeras,
-  // mockPrimalSargerite
+  mockPrimalSargerite
 } from '../mockData';
+
+export const calcWeightedAverage = (itemData) => itemData.MinBuyout/3 + 2/3*itemData.MarketValue
 
 export const convertToGold = (price) => {
   const gold = Math.floor(price / 10000)
@@ -23,7 +24,7 @@ export const getRecipeItemsList = (recipeItem, rawData) => {
           console.log(`Primal Sargerite being referenced in "${recipeItem.Name}" recipe.`)
           return {
             ...acc,
-            [reagent.Id]: mockBloodofSargeras
+            [reagent.Id]: mockPrimalSargerite
           }
         }
         // if the items ID is undefined, we want to let us know.

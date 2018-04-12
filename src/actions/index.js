@@ -9,7 +9,7 @@ import {
 import { names } from '../constants/namesInObj';
 import { recipePages } from '../constants/recipepage'
 import { recipes } from '../recipes';
-import { getRecipeItemsList } from '../utils'
+import { calcWeightedAverage, getRecipeItemsList } from '../utils'
 import { calcBloodOfSargeras } from '../utils/calc_bos';
 
 import { mockData } from '../mockData';
@@ -22,7 +22,7 @@ const calculateCraftingCost = (itemRecipe, reagentData, itemData) => {
     // to calculate, we iterate over the reagants of the materials needed:
     // mat total price consists of the materials current marketValue and the amount needed to create the item
     const craftCost = (rank.Reagents).reduce( (acc, matItem) => {
-      const matPrice = reagentData[matItem.Id].MarketValue
+      const matPrice = calcWeightedAverage(reagentData[matItem.Id])
       const total = matPrice * matItem.Amount
       return acc + total
     }, 0)

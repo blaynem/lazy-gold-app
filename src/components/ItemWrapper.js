@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from 'react-redux'
 
 import { ItemLayout } from './ItemLayout'
+import { calcWeightedAverage } from '../utils'
 
 class ItemWrapper extends Component {
   constructor(props){
@@ -30,11 +31,11 @@ class ItemWrapper extends Component {
       return null
     }
     // ahprice recieved from database
-    const ahPrice = itemData.MarketValue
+    const ahPrice = calcWeightedAverage(itemData)
     // calculated crafting cost
     const craftingCost = RecipeRank[rankValue].costOfRank
     // obliterum price on the AH
-    const obliterumAHPrice = obliterumData.MarketValue
+    const obliterumAHPrice = calcWeightedAverage(obliterumData)
     // obliterum profit is the price, times the yield for obliterating the item, divided by 100.
     // we then take out the AH (5%) cut, and subtract the crafting costs
     const obliterumProfit = (obliterumAHPrice * ObliterumYield / 100) * .95 - craftingCost

@@ -1,3 +1,5 @@
+import { calcWeightedAverage } from './index'
+
 export const calcBloodOfSargeras = (itemDump) => {
   const bloodTraderValues = [
     { Id:124104, amountPerBlood: 10 },
@@ -27,13 +29,14 @@ export const calcBloodOfSargeras = (itemDump) => {
 
   let maxPrice = 0;
   bloodTraderValues.forEach(itemObj => {
-    const itemFromDump = itemDump.find(item => item.Id === itemObj.Id)
-    const calcItemValue = itemFromDump.MarketValue * itemObj.amountPerBlood;
+    const itemData = itemDump.find(item => item.Id === itemObj.Id)
+    const calcItemValue = ( calcWeightedAverage(itemData) ) * itemObj.amountPerBlood;
     if ( calcItemValue > maxPrice ) maxPrice = calcItemValue;
   })
   return {
     Id:124124,
     MarketValue:maxPrice,
+    MinBuyout: maxPrice,
     Name:"Blood of Sargeras",
   }
 }
