@@ -19,13 +19,6 @@ export const getRecipeItemsList = (recipeItem, rawData) => {
       const rankReagents = rankObj.Reagents.reduce((acc, reagent) => {
         // don't need to et once it's already been found
         if ( mainAcc[reagent.Id] !== undefined) return acc
-        if ( reagent.Id === 124124){
-          console.log(`Blood of Sargeras being referenced in "${recipeItem.Name}" recipe.`)
-          return {
-            ...acc,
-            [reagent.Id]: mockBloodofSargeras
-          }
-        }
         if ( reagent.Id === 151568){
           console.log(`Primal Sargerite being referenced in "${recipeItem.Name}" recipe.`)
           return {

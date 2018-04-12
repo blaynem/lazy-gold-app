@@ -43,13 +43,13 @@ View the [Recipe Format JSON](src/recipeFormatExample.json) file in order to bet
   - [x] Leatherworking
   - [ ] Engineering
   - [x] Tailoring
-  - [ ] BoS and Primal Sargerite
+  - [x] BoS
+  - [ ] Primal Sargerite
 - [ ] Give each item a page that has a list of the recipes it is included in.
   - [ ] Including data about the item.
 - [ ] How to calculate blood of sargeras (Primal Sargerite as well).
-  - [ ] Where should it be stored: Inside items reducer? (most likely)
-  - [ ] Where to calculate at? (inside the reducer itself? eh. Maybe chain it to the FETCH_ITEM_DATA action in promise?)
-  - [ ] Created Mock data for it for now.
+  - [x] Where should it be stored: Inside items reducer? (most likely)
+  - [x] Created Mock data for it for now.
 - [ ] Check on Potion of Prolonged Power and how it's obliterum is calculated as its "yield" is 10, and obliterumYield may need to take that into consideration.
   - [ ] Does it really only average 10.4...?
   - [ ] May need to do a calculation on crafted `yield` x `obliterumYield`

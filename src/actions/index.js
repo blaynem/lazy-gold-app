@@ -10,6 +10,7 @@ import { names } from '../constants/namesInObj';
 import { recipePages } from '../constants/recipepage'
 import { recipes } from '../recipes';
 import { getRecipeItemsList } from '../utils'
+import { calcBloodOfSargeras } from '../utils/calc_bos';
 
 import { mockData } from '../mockData';
 
@@ -93,22 +94,26 @@ const parseNeededItems = (itemDump) => {
 export function fetchItemData() {
   return(dispatch) => {
     dispatch({ type: PARSE_PROFESSION_ITEMS, payload: parseNamesIntoIds() })
-    const mockpayload = parseNeededItems(mockData)
-    dispatch({ type: FETCH_ITEM_DATA, payload: mockData })
+    const bloodOfSargObj = calcBloodOfSargeras(mockData)
+    const addBloodOfSarg = [...mockData, bloodOfSargObj]
+    const mockpayload = parseNeededItems(addBloodOfSarg)
+    dispatch({ type: FETCH_ITEM_DATA, payload: addBloodOfSarg })
     dispatch({ type: PARSE_ITEM_DATA, payload: mockpayload })
     // axios({
     //   method: 'get',
     //   url: `${apiConfig.serverGet}?server=hyjal`,
     // })
     // .then( res => {
-    //   const addid = res.data.Items.map( item => {
+    //   const itemDumpAddId = res.data.Items.map( item => {
     //     return {
     //       ...item,
     //       Id: item.ItemID
     //     }
     //   })
-    //   const payload = parseNeededItems(addid)
-    //   dispatch({ type: FETCH_ITEM_DATA, payload: addid })
+    //   const bloodOfSargObj = calcBloodOfSargeras(itemDumpAddId)
+    //   const addBloodOfSarg = [...itemDumpAddId, bloodOfSargObj]
+    //   const payload = parseNeededItems(addBloodOfSarg)
+    //   dispatch({ type: FETCH_ITEM_DATA, payload: itemDumpAddId })
     //   dispatch({ type: PARSE_ITEM_DATA, payload })
     // })
     // .catch(err => {
