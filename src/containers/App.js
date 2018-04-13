@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 import ItemContainer from './Item_Container';
-import ServerInputs from '../components/ServerInputs';
+import SearchRealmInputs from '../components/SearchRealmInputs';
 
 import { fetchItemData } from '../actions'
 
@@ -19,7 +19,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <ServerInputs />
+          <SearchRealmInputs />
           <Header />
           <Navbar />
           <Route exact path="/" component={() => <div>Welcome</div>}/>

@@ -2,22 +2,22 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { saveUserPreferences } from '../actions';
 
-class ServerInputs extends Component {
+class SearchRealmInputs extends Component {
   constructor(props){
     super(props)
 
 
-    const { apikey, server, region } = this.props.userData
+    const { apikey, realm, region } = this.props.userData
     this.state = {
       apikey,
-      server,
+      realm,
       region
     }
   }
   handleSubmit = e => {
     e.preventDefault();
-    const { apikey, server, region } = this.state
-    this.props.saveUserPreferences({apikey, server, region}, true)
+    const { apikey, realm, region } = this.state
+    this.props.saveUserPreferences({apikey, realm, region}, true)
   };
   
   handleChange = (e) => {
@@ -26,7 +26,7 @@ class ServerInputs extends Component {
   };
 
   render() {
-    const { apikey, region, server } = this.state;
+    const { apikey, region, realm } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
         <label htmlFor="apikey">API Key</label>
@@ -37,13 +37,13 @@ class ServerInputs extends Component {
           type="text"
           value={apikey}
         />
-        <label htmlFor="serverField">Server</label>
+        <label htmlFor="realmField">realm</label>
         <input
-          id="serverField"
-          name="server"
+          id="realmField"
+          name="realm"
           onChange={this.handleChange}
           type="text"
-          value={server}
+          value={realm}
         />
         <select
           onChange={this.handleChange}
@@ -63,4 +63,4 @@ const mapStateToProps = state => ({
   userData: state.userData,
 })
 
-export default connect(mapStateToProps, { saveUserPreferences })(ServerInputs)
+export default connect(mapStateToProps, { saveUserPreferences })(SearchRealmInputs)
