@@ -3,7 +3,9 @@ import { apiConfig } from '../config';
 import {
   FETCH_ITEM_DATA,
   PARSE_ITEM_DATA,
-  PARSE_PROFESSION_ITEMS
+  PARSE_PROFESSION_ITEMS,
+  GET_USER_PREFERENCES,
+  SAVE_USER_PREFERENCES,
 } from '../constants'
 
 import { names } from '../constants/namesInObj';
@@ -91,33 +93,45 @@ const parseNeededItems = (itemDump) => {
 
 // used to fetch the item data from our api. but right now we're just
 // using our local mockdata, it doesn't need to be hooked up
-export function fetchItemData() {
-  return(dispatch) => {
-    dispatch({ type: PARSE_PROFESSION_ITEMS, payload: parseNamesIntoIds() })
-    const bloodOfSargObj = calcBloodOfSargeras(mockData)
-    const addBloodOfSarg = [...mockData, bloodOfSargObj]
-    const mockpayload = parseNeededItems(addBloodOfSarg)
-    dispatch({ type: FETCH_ITEM_DATA, payload: addBloodOfSarg })
-    dispatch({ type: PARSE_ITEM_DATA, payload: mockpayload })
-    // axios({
-    //   method: 'get',
-    //   url: `${apiConfig.serverGet}?server=hyjal`,
-    // })
-    // .then( res => {
-    //   const itemDumpAddId = res.data.Items.map( item => {
-    //     return {
-    //       ...item,
-    //       Id: item.ItemID
-    //     }
-    //   })
-    //   const bloodOfSargObj = calcBloodOfSargeras(itemDumpAddId)
-    //   const addBloodOfSarg = [...itemDumpAddId, bloodOfSargObj]
-    //   const payload = parseNeededItems(addBloodOfSarg)
-    //   dispatch({ type: FETCH_ITEM_DATA, payload: itemDumpAddId })
-    //   dispatch({ type: PARSE_ITEM_DATA, payload })
-    // })
-    // .catch(err => {
-    //   console.log(err)
-    // })
-  }
+export const fetchItemData = () => dispatch => {
+  dispatch(getUserPreferences())
+  dispatch({ type: PARSE_PROFESSION_ITEMS, payload: parseNamesIntoIds() })
+  const bloodOfSargObj = calcBloodOfSargeras(mockData)
+  const addBloodOfSarg = [...mockData, bloodOfSargObj]
+  const mockpayload = parseNeededItems(addBloodOfSarg)
+  dispatch({ type: FETCH_ITEM_DATA, payload: addBloodOfSarg })
+  dispatch({ type: PARSE_ITEM_DATA, payload: mockpayload })
+  // axios({
+  //   method: 'get',
+  //   url: `${apiConfig.serverGet}?server=hyjal`,
+  // })
+  // .then( res => {
+  //   const itemDumpAddId = res.data.Items.map( item => {
+  //     return {
+  //       ...item,
+  //       Id: item.ItemID
+  //     }
+  //   })
+  //   const bloodOfSargObj = calcBloodOfSargeras(itemDumpAddId)
+  //   const addBloodOfSarg = [...itemDumpAddId, bloodOfSargObj]
+  //   const payload = parseNeededItems(addBloodOfSarg)
+  //   dispatch({ type: FETCH_ITEM_DATA, payload: itemDumpAddId })
+  //   dispatch({ type: PARSE_ITEM_DATA, payload })
+  // })
+  // .catch(err => {
+  //   console.log(err)
+  // })
+}
+
+export const getUserPreferences = () => {
+  const getFromStorage = JSON.parse(localStorage.getItem('user'))
+  return {
+    type: GET_USER_PREFERENCES,
+    payload: getFromStorage
+  };
+}
+
+export const saveUserPreferences = (payload) => dispatch => {
+  dispatch({ type: SAVE_USER_PREFERENCES, payload })
+  localStorage.setItem('user', JSON.stringify(payload))
 }
