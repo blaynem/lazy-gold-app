@@ -30,6 +30,7 @@ export const calcBloodOfSargeras = (itemDump) => {
   let maxPrice = 0;
   bloodTraderValues.forEach(itemObj => {
     const itemData = itemDump.find(item => item.Id === itemObj.Id)
+    if ( !itemData ) return;
     const calcItemValue = ( calcWeightedAverage(itemData) ) * itemObj.amountPerBlood;
     if ( calcItemValue > maxPrice ) maxPrice = calcItemValue;
   })

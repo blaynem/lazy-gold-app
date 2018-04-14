@@ -60,7 +60,7 @@ class ItemWrapper extends Component {
 }
 
 const mapStateToProps = state => ({
-  obliterumData: state.rawData.data.find( item => item.Id === 124125)
+  obliterumData: state.rawData.data.find( item => item.Id === 124125) || 10
 })
 
 export default connect(mapStateToProps, null)(ItemWrapper)

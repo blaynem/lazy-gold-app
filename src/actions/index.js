@@ -20,24 +20,26 @@ import { calcBloodOfSargeras } from '../utils/calc_bos';
 import { mockData } from '../mockData';
 
 // Used to caculate crafting cost of each rank of item
-const calculateCraftingCost = (itemRecipe, reagentData, itemData) => {
+const calculateCraftingCost = (itemRecipe, reagentData) => {
   // map over each recipe rank per recipe,
   // returns the original array objects with a new cost property
   const newRecipeRank = itemRecipe.RecipeRank.map(rank => {
     // to calculate, we iterate over the reagants of the materials needed:
     // mat total price consists of the materials current marketValue and the amount needed to create the item
     const craftCost = (rank.Reagents).reduce( (acc, matItem) => {
+      if ( reagentData[matItem.Id] === null ) return null;
       const matPrice = calcWeightedAverage(reagentData[matItem.Id])
       const total = matPrice * matItem.Amount
       return acc + total
     }, 0)
 
+    // if ( craftCost === null ) return { ...rank, costOfRank: 10 }
     // we divide by the amount that is crafted per rank in order to get the price.
     // Ex: Rank 1 only yields us 1, rank 3 yields us roughly 1.5
-    const costOfRank = craftCost / rank.Yield
+    // const costOfRank = craftCost / rank.Yield
     return {
       ...rank,
-      costOfRank
+      costOfRank: 10
     }
   })
   // returns the itemRecipe with the new updated recipe rank information
@@ -93,46 +95,67 @@ const parseNeededItems = (itemDump) => {
   }, {})
 }
 
+const parseReturnedData = (res) => dispatch => {
+  if ( res.data.Items.length < 1 ) {
+    console.error('NO DATA RETURNED')
+    dispatch({ type: ITEMS_ERROR, payload: `Whoops, looks like theres no data for the selected realm. It might not exist..` })
+    return;
+  }
+  const itemDumpAddId = res.data.Items.map( item => {
+    return {
+      ...item,
+      Id: item.ItemID
+    }
+  })
+  const bloodOfSargObj = calcBloodOfSargeras(itemDumpAddId)
+  const addBloodOfSarg = [...itemDumpAddId, bloodOfSargObj]
+  const payload = parseNeededItems(addBloodOfSarg)
+  dispatch({ type: FETCH_ITEM_DATA, payload: itemDumpAddId })
+  dispatch({ type: PARSE_ITEM_DATA, payload })
+  dispatch({ type: ITEMS_LOADING, payload: false })
+}
 
 // used to fetch the item data from our api. but right now we're just
 // using our local mockdata, it doesn't need to be hooked up
-export const fetchItemData = ({ apikey, realm, region }) => dispatch => {
+export const fetchItemData = (values) => dispatch => {
+  const { realm } = values
   dispatch({ type: ITEMS_LOADING, payload: true })
   dispatch({ type: PARSE_PROFESSION_ITEMS, payload: parseNamesIntoIds() })
-  const bloodOfSargObj = calcBloodOfSargeras(mockData)
-  const addBloodOfSarg = [...mockData, bloodOfSargObj]
-  const mockpayload = parseNeededItems(addBloodOfSarg)
-  dispatch({ type: FETCH_ITEM_DATA, payload: addBloodOfSarg })
-  dispatch({ type: PARSE_ITEM_DATA, payload: mockpayload })
-  dispatch({ type: ITEMS_LOADING, payload: false })
-  // axios({
-  //   method: 'get',
-  //   url: `${apiConfig.serverGet}?server=${realm}`,
-  // })
-  // .then( res => {
-  //   if ( res.data.Items.length < 1 ) {
-  //     console.error('NO DATA RETURNED')
-  //     dispatch({ type: ITEMS_ERROR, payload: `Whoops, looks like theres no data for the realm: ${realm}.` })
-  //     return;
-  //   }
-  //   const itemDumpAddId = res.data.Items.map( item => {
-  //     return {
-  //       ...item,
-  //       Id: item.ItemID
-  //     }
-  //   })
-  //   const bloodOfSargObj = calcBloodOfSargeras(itemDumpAddId)
-  //   const addBloodOfSarg = [...itemDumpAddId, bloodOfSargObj]
-  //   const payload = parseNeededItems(addBloodOfSarg)
-  //   dispatch({ type: FETCH_ITEM_DATA, payload: itemDumpAddId })
-  //   dispatch({ type: PARSE_ITEM_DATA, payload })
-  //   dispatch({ type: ITEMS_LOADING, payload: false })
-  // })
-  // .catch(err => {
-  //   dispatch({ type: ITEMS_ERROR, payload: err })
-  // })
+  // const bloodOfSargObj = calcBloodOfSargeras(mockData)
+  // const addBloodOfSarg = [...mockData, bloodOfSargObj]
+  // const mockpayload = parseNeededItems(addBloodOfSarg)
+  // dispatch({ type: FETCH_ITEM_DATA, payload: addBloodOfSarg })
+  // dispatch({ type: PARSE_ITEM_DATA, payload: mockpayload })
+  // dispatch({ type: ITEMS_LOADING, payload: false })
+  axios({
+    method: 'get',
+    url: `${apiConfig.serverGet}?server=${realm}`,
+  })
+  .then(res => { dispatch(parseReturnedData(res)); })
+  .catch(err => {
+    dispatch({ type: ITEMS_ERROR, payload: 'Something went wrong with the request.' })
+  })
 }
 
+export const fetchAndPutFromTSM = ({apikey, realm, region}) => dispatch => {
+  const itemId = 4360
+  // const apikey = '_6FqnqwktcVN1HHeGhFA1o6O-iFZ5qIC';
+  const tsmUrl = `http://api.tradeskillmaster.com/v1/item/${region}/${realm}/${itemId}?format=json&apiKey=${apikey}`
+  return;
+  axios({
+    method: 'get',
+    url: tsmUrl
+  })
+  .then( res => {
+    // res.data gives item Object, hopefully item Array too
+    console.log('res from TSM', res.data)
+  })
+  .catch( err => {
+    dispatch({ type: ITEMS_ERROR, payload: err })
+  })
+}
+
+// gets users preferences from local storage
 export const getUserPreferences = () => {
   const getFromStorage = JSON.parse(localStorage.getItem('user'))
   return {
@@ -149,8 +172,10 @@ export const loadSession = () => dispatch => {
   }
 }
 
+// saves users preferences to local storage
 export const saveUserPreferences = payload => dispatch => {
   dispatch({ type: SAVE_USER_PREFERENCES, payload })
   localStorage.setItem('user', JSON.stringify(payload))
-  dispatch(fetchItemData(payload))
+  dispatch(fetchItemData(payload));
+  // dispatch(fetchAndPutFromTSM(payload));
 }

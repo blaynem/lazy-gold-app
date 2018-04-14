@@ -19,8 +19,8 @@ export const getRecipeItemsList = (recipeItem, rawData) => {
     return recipeItem.RecipeRank.reduce((mainAcc, rankObj) => {
       const rankReagents = rankObj.Reagents.reduce((acc, reagent) => {
         // don't need to et once it's already been found
-        if ( mainAcc[reagent.Id] !== undefined) return acc
-        if ( reagent.Id === 151568){
+        if ( !!mainAcc[reagent.Id] ) return acc
+        if ( reagent.Id === 151568 ){
           console.log(`Primal Sargerite being referenced in "${recipeItem.Name}" recipe.`)
           return {
             ...acc,
@@ -28,7 +28,7 @@ export const getRecipeItemsList = (recipeItem, rawData) => {
           }
         }
         // if the items ID is undefined, we want to let us know.
-        if (rawData.find( item => item.Id === reagent.Id) === undefined){
+        if ( !rawData.find( item => item.Id === reagent.Id) ){
           console.warn(`${reagent.Name} seems to be missing. Check Id of ${reagent.Id}`)
         }
         // maps over the RecipeRank, grabbing all of the Reagents and placing them
