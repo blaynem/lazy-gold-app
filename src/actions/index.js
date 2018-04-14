@@ -127,7 +127,7 @@ export const fetchItemData = (realm) => dispatch => {
   //   dispatch({ type: FETCH_ITEM_DATA, payload: itemDumpAddId })
   //   dispatch({ type: PARSE_ITEM_DATA, payload })
   //   dispatch({ type: ITEMS_LOADING, payload: false })
-  })
+  // })
   .catch(err => {
     console.log(err)
   })
