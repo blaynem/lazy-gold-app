@@ -29,7 +29,7 @@ export const getRecipeItemsList = (recipeItem, rawData) => {
         }
         // if the items ID is undefined, we want to let us know.
         if ( !rawData.find( item => item.Id === reagent.Id) ){
-          console.warn(`${reagent.Name} seems to be missing. Check Id of ${reagent.Id}`)
+          // console.warn(`${reagent.Name} seems to be missing. Check Id of ${reagent.Id}`)
         }
         // maps over the RecipeRank, grabbing all of the Reagents and placing them
         // inside the recipeList

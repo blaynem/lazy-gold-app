@@ -94,16 +94,19 @@ const parseNeededItems = (itemDump) => {
   }, {})
 }
 
-const parseReturnedData = (res) => dispatch => {
-  if ( res.data.Items.length < 1 ) {
-    console.error('NO DATA RETURNED')
+// parses the returned data
+const parseReturnedData = (res, realm) => dispatch => {
+  if ( res.data.Items && res.data.Items.length < 1 ) {
     dispatch({ type: ITEMS_ERROR, payload: `Whoops, looks like theres no data for the selected realm. It might not exist..` })
     return;
   }
+  var theDate = Math.round((new Date()).getTime() / 1000);
   const itemDumpAddId = res.data.Items.map( item => {
     return {
       ...item,
-      Id: item.ItemID
+      Id: item.ItemID,
+      Server: realm.toLowerCase(),
+      Date: theDate
     }
   })
   const bloodOfSargObj = calcBloodOfSargeras(itemDumpAddId)
@@ -112,6 +115,21 @@ const parseReturnedData = (res) => dispatch => {
   dispatch({ type: FETCH_ITEM_DATA, payload: itemDumpAddId })
   dispatch({ type: PARSE_ITEM_DATA, payload })
   dispatch({ type: ITEMS_LOADING, payload: false })
+}
+
+// posts the returned data from tsm into our database
+const postReturnedDataFromTSM = (itemDump) => dispatch => {
+  console.log('---2post return itemdump', itemDump)
+  axios({
+    method: 'post',
+    url: `${apiConfig.serverGet}`,
+    body: itemDump,
+  })
+  .then(res => { console.log('---3response from POST', res) })
+  .catch(err => {
+    console.log(err)
+    dispatch({ type: ITEMS_ERROR, payload: 'Something went wrong with the request.' })
+  }) 
 }
 
 // used to fetch the item data from our api. but right now we're just
@@ -130,28 +148,58 @@ export const fetchItemData = (values) => dispatch => {
     method: 'get',
     url: `${apiConfig.serverGet}?server=${realm}`,
   })
-  .then(res => { dispatch(parseReturnedData(res)); })
+  .then(res => {
+    dispatch(parseReturnedData(res, realm));
+  })
   .catch(err => {
     console.log(err)
     dispatch({ type: ITEMS_ERROR, payload: 'Something went wrong with the request.' })
   })
 }
 
+// Fetches data from the TSM database to return to our user and store in our databse.
 export const fetchAndPutFromTSM = ({apikey, realm, region}) => dispatch => {
   const itemId = 4360
   // const apikey = '_6FqnqwktcVN1HHeGhFA1o6O-iFZ5qIC';
   const tsmUrl = `http://api.tradeskillmaster.com/v1/item/${region}/${realm}/${itemId}?format=json&apiKey=${apikey}`
-  return;
+  // return;
   axios({
     method: 'get',
     url: tsmUrl
   })
   .then( res => {
-    // res.data gives item Object, hopefully item Array too
-    console.log('res from TSM', res.data)
+    console.log('---1 fetch and put', res)
+    // dispatch(parseReturnedData(res, realm))
+    var theDate = Math.round((new Date()).getTime() / 1000);
+    const itemDump = {
+      ...res.data,
+      ItemID: res.data.Id,
+      Server: realm.toLowerCase(),
+      Date: theDate
+    }
+    // const itemDump = res.data.Items.map( item => {
+    //   return {
+    //     ...res.data,
+    //     ItemID: res.data.Id,
+    //     Server: realm.toLowerCase(),
+    //     Date: theDate
+    //   }
+    // })
+    // dispatch(postReturnedDataFromTSM(itemDump))
+    console.log('---2post return itemdump', itemDump)
+    axios({
+      method: 'POST',
+      url: `${apiConfig.serverGet}`,
+      data: itemDump,
+    })
+    .then(res => { console.log('---3response from POST', res) })
+    .catch(err => {
+      console.log(err)
+      dispatch({ type: ITEMS_ERROR, payload: 'Something went wrong with the request.' })
+    }) 
   })
   .catch( err => {
-    dispatch({ type: ITEMS_ERROR, payload: err })
+    dispatch({ type: ITEMS_ERROR, payload: err.error })
   })
 }
 
@@ -177,5 +225,5 @@ export const saveUserPreferences = payload => dispatch => {
   dispatch({ type: SAVE_USER_PREFERENCES, payload })
   localStorage.setItem('user', JSON.stringify(payload))
   dispatch(fetchItemData(payload));
-  // dispatch(fetchAndPutFromTSM(payload));
+  dispatch(fetchAndPutFromTSM(payload));
 }
