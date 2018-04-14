@@ -96,7 +96,7 @@ const parseNeededItems = (itemDump) => {
 
 // used to fetch the item data from our api. but right now we're just
 // using our local mockdata, it doesn't need to be hooked up
-export const fetchItemData = (realm) => dispatch => {
+export const fetchItemData = ({ apikey, realm, region }) => dispatch => {
   dispatch({ type: ITEMS_LOADING, payload: true })
   dispatch({ type: PARSE_PROFESSION_ITEMS, payload: parseNamesIntoIds() })
   const bloodOfSargObj = calcBloodOfSargeras(mockData)
@@ -129,7 +129,7 @@ export const fetchItemData = (realm) => dispatch => {
   //   dispatch({ type: ITEMS_LOADING, payload: false })
   // })
   // .catch(err => {
-  //   console.log(err)
+  //   dispatch({ type: ITEMS_ERROR, payload: err })
   // })
 }
 
@@ -144,16 +144,13 @@ export const getUserPreferences = () => {
 // loads session data by grabbing the 
 export const loadSession = () => dispatch => {
   const userPrefs = dispatch(getUserPreferences())
-  if ( userPrefs.payload.realm ) {
-    dispatch(fetchItemData(userPrefs.payload.realm))
-    return;
+  if ( userPrefs.payload && userPrefs.payload.realm ) {
+    dispatch(fetchItemData(userPrefs.payload))
   }
 }
 
-export const saveUserPreferences = (payload) => (dispatch, getState) => {
-  const userPrefs = getUserPreferences()
-  if ( payload.realm === userPrefs.payload.realm ) return;
+export const saveUserPreferences = payload => dispatch => {
   dispatch({ type: SAVE_USER_PREFERENCES, payload })
   localStorage.setItem('user', JSON.stringify(payload))
-  dispatch(fetchItemData(payload.realm))
+  dispatch(fetchItemData(payload))
 }

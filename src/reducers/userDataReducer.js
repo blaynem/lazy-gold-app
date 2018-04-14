@@ -4,9 +4,9 @@ import {
 } from '../constants';
 
 const INITIAL_STATE = {
-  apiKey: '',
+  apikey: '',
   realm: '',
-  region: '',
+  region: 'US',
 };
 
 export default function userDataReducer(state = INITIAL_STATE, action) {

@@ -23,10 +23,15 @@ class ItemContainer extends Component {
     });
   };
   renderPage = () => {
-    const { error, loading, match: { params: { profession } } } = this.props
-    // const { profession } = this.props.match.params
+    const {
+      error,
+      items,
+      loading,
+      match: { params: { profession } }
+    } = this.props
     if ( error ) return <p>{error}</p>
     if ( loading ) return <p>Loading...</p>
+    if ( items.data.length < 1 ) return <p>No data loaded.</p>
     return (
       <Fragment> 
         <PageHeader>
@@ -39,8 +44,7 @@ class ItemContainer extends Component {
     )
   }
   render() {
-    const { error, items, loading, message } = this.props
-    // if(items[profession] === undefined) return <div>Error Request</div>
+    const { message } = this.props
     return (
       <Fragment>
         { message && <p>{message}</p> }
