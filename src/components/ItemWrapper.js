@@ -24,6 +24,7 @@ class ItemWrapper extends Component {
       obliterumData
     } = this.props
 
+
     const { Name } = itemData
     const { ObliterumYield, RecipeRank } = itemData.recipe
     if (itemData === undefined || itemData.recipe === undefined){
@@ -35,10 +36,15 @@ class ItemWrapper extends Component {
     // calculated crafting cost
     const craftingCost = RecipeRank[rankValue].costOfRank
     // obliterum price on the AH
-    const obliterumAHPrice = calcWeightedAverage(obliterumData)
-    // obliterum profit is the price, times the yield for obliterating the item, divided by 100.
-    // we then take out the AH (5%) cut, and subtract the crafting costs
-    const obliterumProfit = (obliterumAHPrice * ObliterumYield / 100) * .95 - craftingCost
+    let obliterumProfit;
+    if ( obliterumData === null ){
+      obliterumProfit = 'No Data'
+    } else {
+      const obliterumAHPrice = calcWeightedAverage(obliterumData)
+      // obliterum profit is the price, times the yield for obliterating the item, divided by 100.
+      // we then take out the AH (5%) cut, and subtract the crafting costs
+      obliterumProfit = (obliterumAHPrice * ObliterumYield / 100) * .95 - craftingCost
+    }
     // ahProfit is calculated by the current price in the AH,
     // minus the AH (5%) cut, and subtract the crafting costs    
     const ahProfit = ahPrice * .95 - craftingCost
@@ -60,7 +66,7 @@ class ItemWrapper extends Component {
 }
 
 const mapStateToProps = state => ({
-  obliterumData: state.rawData.data.find( item => item.Id === 124125) || 10
+  obliterumData: state.rawData.data.find( item => item.Id === 124125) || null
 })
 
 export default connect(mapStateToProps, null)(ItemWrapper)

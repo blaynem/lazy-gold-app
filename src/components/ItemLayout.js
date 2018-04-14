@@ -5,6 +5,7 @@ import { convertToGold } from '../utils';
 import { RankSelector } from '../Widgets/RankSelector';
 
 const renderPrices = (price) => {
+  if ( typeof price === 'string' ) return price;
   const priceObj = convertToGold(price)
   // converts the pricing we recieved into an object so we can use the fancy coloring on leters.
   return (

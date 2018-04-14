@@ -27,19 +27,18 @@ const calculateCraftingCost = (itemRecipe, reagentData) => {
     // to calculate, we iterate over the reagants of the materials needed:
     // mat total price consists of the materials current marketValue and the amount needed to create the item
     const craftCost = (rank.Reagents).reduce( (acc, matItem) => {
-      if ( reagentData[matItem.Id] === null ) return null;
+      if ( !reagentData[matItem.Id] ) return null;
       const matPrice = calcWeightedAverage(reagentData[matItem.Id])
       const total = matPrice * matItem.Amount
       return acc + total
     }, 0)
 
-    // if ( craftCost === null ) return { ...rank, costOfRank: 10 }
     // we divide by the amount that is crafted per rank in order to get the price.
     // Ex: Rank 1 only yields us 1, rank 3 yields us roughly 1.5
-    // const costOfRank = craftCost / rank.Yield
+    const costOfRank = craftCost / rank.Yield
     return {
       ...rank,
-      costOfRank: 10
+      costOfRank
     }
   })
   // returns the itemRecipe with the new updated recipe rank information
@@ -133,6 +132,7 @@ export const fetchItemData = (values) => dispatch => {
   })
   .then(res => { dispatch(parseReturnedData(res)); })
   .catch(err => {
+    console.log(err)
     dispatch({ type: ITEMS_ERROR, payload: 'Something went wrong with the request.' })
   })
 }
