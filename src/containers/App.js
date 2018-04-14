@@ -7,13 +7,13 @@ import Navbar from '../components/Navbar';
 import ItemContainer from './Item_Container';
 import SearchRealmInputs from '../components/SearchRealmInputs';
 
-import { fetchItemData } from '../actions'
+import { loadSession } from '../actions'
 
 import '../styles/index.less'
 
 class App extends Component {
   componentWillMount() {
-    this.props.fetchItemData()
+    this.props.loadSession()
   }
   render() {
     return (
@@ -30,4 +30,4 @@ class App extends Component {
   }
 }
 
-export default connect(null, { fetchItemData })(App);
+export default connect(null, { loadSession })(App);

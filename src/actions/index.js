@@ -1,10 +1,13 @@
 import axios from 'axios';
 import { apiConfig } from '../config';
 import {
+  GET_USER_PREFERENCES,
   FETCH_ITEM_DATA,
+  ITEMS_ERROR,
+  ITEMS_LOADING,
+  ITEMS_MESSAGE,
   PARSE_ITEM_DATA,
   PARSE_PROFESSION_ITEMS,
-  GET_USER_PREFERENCES,
   SAVE_USER_PREFERENCES,
 } from '../constants'
 
@@ -93,19 +96,25 @@ const parseNeededItems = (itemDump) => {
 
 // used to fetch the item data from our api. but right now we're just
 // using our local mockdata, it doesn't need to be hooked up
-export const fetchItemData = () => dispatch => {
-  dispatch(getUserPreferences())
+export const fetchItemData = (realm) => dispatch => {
+  dispatch({ type: ITEMS_LOADING, payload: true })
   dispatch({ type: PARSE_PROFESSION_ITEMS, payload: parseNamesIntoIds() })
   const bloodOfSargObj = calcBloodOfSargeras(mockData)
   const addBloodOfSarg = [...mockData, bloodOfSargObj]
   const mockpayload = parseNeededItems(addBloodOfSarg)
   dispatch({ type: FETCH_ITEM_DATA, payload: addBloodOfSarg })
   dispatch({ type: PARSE_ITEM_DATA, payload: mockpayload })
+  dispatch({ type: ITEMS_LOADING, payload: false })
   // axios({
   //   method: 'get',
-  //   url: `${apiConfig.serverGet}?server=hyjal`,
+  //   url: `${apiConfig.serverGet}?server=${realm}`,
   // })
   // .then( res => {
+  //   if ( res.data.Items.length < 1 ) {
+  //     console.error('NO DATA RETURNED')
+  //     dispatch({ type: ITEMS_ERROR, payload: `Whoops, looks like theres no data for the realm: ${realm}.` })
+  //     return;
+  //   }
   //   const itemDumpAddId = res.data.Items.map( item => {
   //     return {
   //       ...item,
@@ -117,10 +126,11 @@ export const fetchItemData = () => dispatch => {
   //   const payload = parseNeededItems(addBloodOfSarg)
   //   dispatch({ type: FETCH_ITEM_DATA, payload: itemDumpAddId })
   //   dispatch({ type: PARSE_ITEM_DATA, payload })
-  // })
-  // .catch(err => {
-  //   console.log(err)
-  // })
+  //   dispatch({ type: ITEMS_LOADING, payload: false })
+  })
+  .catch(err => {
+    console.log(err)
+  })
 }
 
 export const getUserPreferences = () => {
@@ -131,7 +141,19 @@ export const getUserPreferences = () => {
   };
 }
 
-export const saveUserPreferences = (payload) => dispatch => {
+// loads session data by grabbing the 
+export const loadSession = () => dispatch => {
+  const userPrefs = dispatch(getUserPreferences())
+  if ( userPrefs.payload.realm ) {
+    dispatch(fetchItemData(userPrefs.payload.realm))
+    return;
+  }
+}
+
+export const saveUserPreferences = (payload) => (dispatch, getState) => {
+  const userPrefs = getUserPreferences()
+  if ( payload.realm === userPrefs.payload.realm ) return;
   dispatch({ type: SAVE_USER_PREFERENCES, payload })
   localStorage.setItem('user', JSON.stringify(payload))
+  dispatch(fetchItemData(payload.realm))
 }

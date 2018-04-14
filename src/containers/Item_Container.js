@@ -22,12 +22,13 @@ class ItemContainer extends Component {
       );
     });
   };
-  render() {
-    const { items } = this.props
-    const { profession } = this.props.match.params
-    if(items[profession] === undefined) return <div>Error Request</div>
+  renderPage = () => {
+    const { error, loading, match: { params: { profession } } } = this.props
+    // const { profession } = this.props.match.params
+    if ( error ) return <p>{error}</p>
+    if ( loading ) return <p>Loading...</p>
     return (
-      <Fragment>
+      <Fragment> 
         <PageHeader>
           {profession} page
         </PageHeader>
@@ -35,13 +36,26 @@ class ItemContainer extends Component {
           {this.createMapList(profession)}
         </ListGroup>
       </Fragment>
+    )
+  }
+  render() {
+    const { error, items, loading, message } = this.props
+    // if(items[profession] === undefined) return <div>Error Request</div>
+    return (
+      <Fragment>
+        { message && <p>{message}</p> }
+        {this.renderPage()}
+      </Fragment>
     );
   }
 }
 
 function mapStateToProps(state) {
   return {
+    error: state.items.error,
     items: state.items,
+    loading: state.items.loading,
+    message: state.items.message,
   };
 }
 
