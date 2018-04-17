@@ -96,7 +96,7 @@ const parseNeededItems = (itemDump) => {
 
 // parses the returned data
 const parseReturnedData = (resItems, realm) => dispatch => {
-  var theDate = Math.round((new Date()).getTime() / 1000);
+  var utcDate = Math.round((new Date()).getTime() / 1000);
   const itemDumpAddId = resItems.map( item => {
     // needs to be item.ItemID because i stored it wrong inside dynamo.. should probably fix this.
     return {
@@ -104,7 +104,7 @@ const parseReturnedData = (resItems, realm) => dispatch => {
       Id: item.Id || item.ItemID,
       ItemID: item.Id || item.ItemID,
       Server: realm.toLowerCase(),
-      Date: theDate,
+      Date: utcDate,
     }
   })
   const bloodOfSargObj = calcBloodOfSargeras(itemDumpAddId)
@@ -154,15 +154,29 @@ export const fetchItemData = (values) => dispatch => {
   // dispatch({ type: FETCH_ITEM_DATA, payload: addBloodOfSarg })
   // dispatch({ type: PARSE_ITEM_DATA, payload: mockpayload })
   // dispatch({ type: ITEMS_LOADING, payload: false })
+  console.log('gonna fetch the data locally')
+  dispatch(fetchDataLocally(values));
+  return
   axios({
     method: 'get',
     url: `${apiConfig.serverGet}?server=${realm}`,
   })
   .then(res => {
     if ( res.data && res.data.Count < 1 ) {
+      console.log('----fetch from TSM on load')
       dispatch(fetchAndPutFromTSM(values))
       dispatch({ type: ITEMS_MESSAGE, payload: `Whoops, looks like theres no data for the selected realm. Give us a bit to gather some..` })
       return;
+    }
+    const currentTime = Math.round((new Date()).getTime() / 1000);
+    const firstItemDate = res.data.Items[0].Date
+    // if there is no date data, or time since last update has been an hour (3600 secs)
+    if( !firstItemDate || currentTime - firstItemDate > 3600 ) {
+      console.log('currentime', currentTime)
+      console.log('firstItemDate', firstItemDate)
+      console.log('difference', currentTime - firstItemDate)
+      console.log('GONNA UPDATE THIS SHIT CUZ ITS OLD')
+      dispatch(fetchAndPutFromTSM(values))
     }
     const { itemDumpAddId, parsedItems } = dispatch(parseReturnedData(res.data.Items, realm));
     dispatch({ type: FETCH_ITEM_DATA, payload: itemDumpAddId })
@@ -175,47 +189,95 @@ export const fetchItemData = (values) => dispatch => {
   })
 }
 
+const fetchDataLocally = (values) => dispatch => {
+  const { realm } = values;
+  const data = JSON.parse(localStorage.getItem('items'))
+  if ( data && data.length < 1 ) {
+    dispatch(fetchAndPutFromTSM(values))
+    dispatch({ type: ITEMS_MESSAGE, payload: `Whoops, looks like theres no data for the selected realm. Give us a bit to gather some..` })
+    return;
+  }
+  const currentTime = Math.round((new Date()).getTime() / 1000);
+  const firstItemDate = data[0].Date
+  console.log('current time', currentTime)
+  console.log('firstitem time', firstItemDate)
+  console.log('calculate', currentTime - firstItemDate )
+  // if there is no date data, or time since last update has been an hour (3600 secs)
+  if( !firstItemDate || currentTime - firstItemDate > 360 ) {
+    console.log('currentime', currentTime)
+    console.log('firstItemDate', firstItemDate)
+    console.log('difference', currentTime - firstItemDate)
+    console.log('GONNA UPDATE THIS SHIT CUZ ITS OLD')
+    dispatch(fetchAndPutFromTSM(values))
+  }
+  const { itemDumpAddId, parsedItems } = dispatch(parseReturnedData(data, realm));
+  dispatch({ type: FETCH_ITEM_DATA, payload: itemDumpAddId })
+  dispatch({ type: PARSE_ITEM_DATA, payload: parsedItems })
+  dispatch({ type: ITEMS_LOADING, payload: false })
+}
+
 /****************** GETTING DATA FROM TSM  *****************/
 
 // posts the returned data from tsm into our database
 const postReturnedDataFromTSM = (itemDump) => dispatch => {
-  console.log('POSTING DATA FROM TSM', itemDump);
-  axios({
+  const postToDynamo = (itemToPost) => axios({
     method: 'POST',
     url: `${apiConfig.serverGet}`,
-    data: itemDump,
+    data: itemToPost,
   })
   .then(res => {
     console.log('---Successfully posted to dynamo', res)
   })
   .catch(err => {
-    dispatch({ type: ITEMS_ERROR, payload: 'Something went wrong with the request.' })
-  }) 
+    // dont need to return anything, because its just an error posting to our server
+    // dispatch({ type: ITEMS_ERROR, payload: 'Something went wrong with the request.' })
+  })
+  console.log('STORED IN LOCALSTORAGE')
+  localStorage.setItem('items', JSON.stringify(itemDump))
+  return;
+  let index, times = 50;
+  for (index=0; index < itemDump.length; index += times ) {
+    if ( index > 50 ) { break; }
+    const items = [ ...itemDump.slice(index, index + times) ];
+    postToDynamo(items)
+  }
 }
 
 // Fetches data from the TSM database to return to our user and store in our databse.
 export const fetchAndPutFromTSM = ({apikey, realm, region}) => dispatch => {
-  const itemId = 4360
+  const itemId = 4361
   // const apikey = '_6FqnqwktcVN1HHeGhFA1o6O-iFZ5qIC';
-  const tsmUrl = `http://api.tradeskillmaster.com/v1/item/${region}/${realm}/${itemId}?format=json&apiKey=${apikey}`
-  console.log('----TSM FETCH---', apikey, realm, region)
-  axios({
-    method: 'get',
-    url: tsmUrl
-  })
-  .then( res => {
-    let response = res.data;
-    if ( typeof(response) === 'object' ){
-      // doing this because parseReturnedData expects an array of items.
-      response = [response]
-    }
-    const { itemDumpAddId, parsedItems } = dispatch(parseReturnedData(response, realm))
-    dispatch({ type: FETCH_ITEM_DATA, payload: itemDumpAddId })
-    dispatch({ type: PARSE_ITEM_DATA, payload: parsedItems })
-    dispatch({ type: ITEMS_LOADING, payload: false })
-    dispatch(postReturnedDataFromTSM(itemDumpAddId)) 
-  })
-  .catch( err => {
-    dispatch({ type: ITEMS_ERROR, payload: err.error })
-  })
+  // this URL is for singular item
+  // const tsmUrl = `http://api.tradeskillmaster.com/v1/item/${region}/${realm}/${itemId}?format=json&apiKey=${apikey}`
+  // this URL is for all items on server
+  // const tsmUrl = `http://api.tradeskillmaster.com/v1/item/${region}/${realm}?format=json&apiKey=${apikey}`
+  
+  /** DOING THIS BECAUSE WE WANT TO SAVE BADNWITH */
+  console.log('GONNA TRY TO POST')
+  const { itemDumpAddId, parsedItems } = dispatch(parseReturnedData(mockData, realm))
+  dispatch({ type: FETCH_ITEM_DATA, payload: itemDumpAddId })
+  dispatch({ type: PARSE_ITEM_DATA, payload: parsedItems })
+  dispatch({ type: ITEMS_LOADING, payload: false })
+  dispatch(postReturnedDataFromTSM(itemDumpAddId))
+  /** END HERE */
+  return;
+  // axios({
+  //   method: 'get',
+  //   url: tsmUrl
+  // })
+  // .then( res => {
+  //   let response = res.data;
+  //   if ( typeof(response) === 'object' ){
+  //     // doing this because parseReturnedData expects an array of items.
+  //     response = [response]
+  //   }
+  //   const { itemDumpAddId, parsedItems } = dispatch(parseReturnedData(response, realm))
+  //   dispatch({ type: FETCH_ITEM_DATA, payload: itemDumpAddId })
+  //   dispatch({ type: PARSE_ITEM_DATA, payload: parsedItems })
+  //   dispatch({ type: ITEMS_LOADING, payload: false })
+  //   dispatch(postReturnedDataFromTSM(itemDumpAddId))
+  // })
+  // .catch( err => {
+  //   dispatch({ type: ITEMS_ERROR, payload: err.error })
+  // })
 }
