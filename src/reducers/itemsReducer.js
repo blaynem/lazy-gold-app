@@ -36,7 +36,6 @@ export default function itemsReducer(state = INITIAL_STATE, action){
       return {
         ...state,
         error: null,
-        loading: false,
         message: action.payload,
       }
     case PARSE_ITEM_DATA:

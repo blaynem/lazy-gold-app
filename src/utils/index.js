@@ -21,7 +21,7 @@ export const getRecipeItemsList = (recipeItem, rawData) => {
         // don't need to et once it's already been found
         if ( !!mainAcc[reagent.Id] ) return acc
         if ( reagent.Id === 151568 ){
-          console.log(`Primal Sargerite being referenced in "${recipeItem.Name}" recipe.`)
+          // console.log(`Primal Sargerite being referenced in "${recipeItem.Name}" recipe.`)
           return {
             ...acc,
             [reagent.Id]: mockPrimalSargerite

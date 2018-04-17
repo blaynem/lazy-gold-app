@@ -96,7 +96,6 @@ const parseNeededItems = (itemDump) => {
 
 // parses the returned data
 const parseReturnedData = (resItems, realm) => dispatch => {
-  console.log('parse ran')
   var theDate = Math.round((new Date()).getTime() / 1000);
   const itemDumpAddId = resItems.map( item => {
     // needs to be item.ItemID because i stored it wrong inside dynamo.. should probably fix this.
@@ -114,19 +113,8 @@ const parseReturnedData = (resItems, realm) => dispatch => {
   return { itemDumpAddId, parsedItems }
 }
 
-// posts the returned data from tsm into our database
-const postReturnedDataFromTSM = (itemDump) => dispatch => {
-  axios({
-    method: 'POST',
-    url: `${apiConfig.serverGet}`,
-    data: itemDump,
-  })
-  .then(res => { console.log('---3response from POST', res) })
-  .catch(err => {
-    console.log(err)
-    dispatch({ type: ITEMS_ERROR, payload: 'Something went wrong with the request.' })
-  }) 
-}
+
+/****************** USER PREFERENCES  *****************/
 
 // gets users preferences from local storage
 export const getUserPreferences = () => {
@@ -137,20 +125,21 @@ export const getUserPreferences = () => {
   };
 }
 
+// saves users preferences to local storage
+export const saveUserPreferences = payload => dispatch => {
+  dispatch({ type: SAVE_USER_PREFERENCES, payload })
+  localStorage.setItem('user', JSON.stringify(payload))
+  dispatch(fetchItemData(payload));
+}
+
+/****************** FETCH DATA FROM OUR API  *****************/
+
 // loads session data by grabbing the 
 export const loadSession = () => dispatch => {
   const userPrefs = dispatch(getUserPreferences())
   if ( userPrefs.payload && userPrefs.payload.realm ) {
     dispatch(fetchItemData(userPrefs.payload))
   }
-}
-
-// saves users preferences to local storage
-export const saveUserPreferences = payload => dispatch => {
-  dispatch({ type: SAVE_USER_PREFERENCES, payload })
-  localStorage.setItem('user', JSON.stringify(payload))
-  dispatch(fetchItemData(payload));
-  dispatch(fetchAndPutFromTSM(payload));
 }
 
 // used to fetch the item data from our api. but right now we're just
@@ -170,8 +159,9 @@ export const fetchItemData = (values) => dispatch => {
     url: `${apiConfig.serverGet}?server=${realm}`,
   })
   .then(res => {
-    if ( typeof(res.data.Items) === 'array' && res.data.Items.length < 1 ) {
-      dispatch({ type: ITEMS_ERROR, payload: `Whoops, looks like theres no data for the selected realm. It might not exist..` })
+    if ( res.data && res.data.Count < 1 ) {
+      dispatch(fetchAndPutFromTSM(values))
+      dispatch({ type: ITEMS_MESSAGE, payload: `Whoops, looks like theres no data for the selected realm. Give us a bit to gather some..` })
       return;
     }
     const { itemDumpAddId, parsedItems } = dispatch(parseReturnedData(res.data.Items, realm));
@@ -185,12 +175,30 @@ export const fetchItemData = (values) => dispatch => {
   })
 }
 
+/****************** GETTING DATA FROM TSM  *****************/
+
+// posts the returned data from tsm into our database
+const postReturnedDataFromTSM = (itemDump) => dispatch => {
+  console.log('POSTING DATA FROM TSM', itemDump);
+  axios({
+    method: 'POST',
+    url: `${apiConfig.serverGet}`,
+    data: itemDump,
+  })
+  .then(res => {
+    console.log('---Successfully posted to dynamo', res)
+  })
+  .catch(err => {
+    dispatch({ type: ITEMS_ERROR, payload: 'Something went wrong with the request.' })
+  }) 
+}
+
 // Fetches data from the TSM database to return to our user and store in our databse.
 export const fetchAndPutFromTSM = ({apikey, realm, region}) => dispatch => {
   const itemId = 4360
   // const apikey = '_6FqnqwktcVN1HHeGhFA1o6O-iFZ5qIC';
   const tsmUrl = `http://api.tradeskillmaster.com/v1/item/${region}/${realm}/${itemId}?format=json&apiKey=${apikey}`
-  // return;
+  console.log('----TSM FETCH---', apikey, realm, region)
   axios({
     method: 'get',
     url: tsmUrl
@@ -202,6 +210,9 @@ export const fetchAndPutFromTSM = ({apikey, realm, region}) => dispatch => {
       response = [response]
     }
     const { itemDumpAddId, parsedItems } = dispatch(parseReturnedData(response, realm))
+    dispatch({ type: FETCH_ITEM_DATA, payload: itemDumpAddId })
+    dispatch({ type: PARSE_ITEM_DATA, payload: parsedItems })
+    dispatch({ type: ITEMS_LOADING, payload: false })
     dispatch(postReturnedDataFromTSM(itemDumpAddId)) 
   })
   .catch( err => {
